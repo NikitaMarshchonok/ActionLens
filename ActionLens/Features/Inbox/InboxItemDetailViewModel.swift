@@ -6,15 +6,18 @@ struct InboxItemDetailViewModel {
     private let entityExtractionService: any EntityExtractionServicing
     private let smartActionService: any SmartActionServicing
     private let productivityActionService: any ProductivityActionServicing
+    private let contactActionService: any ContactActionServicing
 
     init(
         entityExtractionService: any EntityExtractionServicing = LocalEntityExtractionService(),
         smartActionService: any SmartActionServicing = LocalSmartActionService(),
-        productivityActionService: any ProductivityActionServicing = EventKitActionService()
+        productivityActionService: any ProductivityActionServicing = EventKitActionService(),
+        contactActionService: any ContactActionServicing = ContactsActionService()
     ) {
         self.entityExtractionService = entityExtractionService
         self.smartActionService = smartActionService
         self.productivityActionService = productivityActionService
+        self.contactActionService = contactActionService
     }
 
     func createdAtText(for item: InboxItem) -> String {
@@ -36,7 +39,11 @@ struct InboxItemDetailViewModel {
     }
 
     func suggestedActions(for item: InboxItem, entities: ExtractedEntities) -> [SmartSuggestedAction] {
-        smartActionService.suggestedActions(entities: entities, currentStatus: item.status)
+        smartActionService.suggestedActions(
+            entities: entities,
+            currentStatus: item.status,
+            itemTypeRaw: item.itemTypeRaw
+        )
     }
 
     func performSuggestedAction(
@@ -57,6 +64,9 @@ struct InboxItemDetailViewModel {
                 title: item.title,
                 startDate: entities.detectedDate
             )
+        case .createContact:
+            let draft = makeContactDraft(for: item, entities: entities)
+            return await contactActionService.createContact(from: draft)
         case .saveForLater:
             item.status = "saved_for_later"
             try? modelContext.save()
@@ -78,5 +88,60 @@ struct InboxItemDetailViewModel {
             UIPasteboard.general.string = value
             return "Phone copied."
         }
+    }
+
+    private func makeContactDraft(for item: InboxItem, entities: ExtractedEntities) -> ContactDraft {
+        let text = item.extractedText ?? ""
+        let lines = text
+            .split(separator: "\n")
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { $0.isEmpty == false }
+
+        let personNameLine = lines.first(where: isLikelyPersonNameLine)
+        let companyLine = lines.first(where: isLikelyCompanyLine)
+
+        var givenName: String?
+        var familyName: String?
+
+        if let personNameLine {
+            let parts = personNameLine.split(separator: " ").map(String.init)
+            if parts.isEmpty == false {
+                givenName = parts.first
+                if parts.count >= 2 {
+                    familyName = parts.dropFirst().joined(separator: " ")
+                }
+            }
+        }
+
+        return ContactDraft(
+            givenName: givenName,
+            familyName: familyName,
+            organizationName: companyLine,
+            email: entities.email,
+            phone: entities.phoneNumbers.first ?? entities.phoneNumber,
+            url: entities.url
+        )
+    }
+
+    private func isLikelyPersonNameLine(_ line: String) -> Bool {
+        let lowercased = line.lowercased()
+        if lowercased.contains("@") || lowercased.contains("http") || lowercased.contains("www.") {
+            return false
+        }
+        let words = line.split(separator: " ")
+        guard words.count >= 2, words.count <= 3 else { return false }
+        return words.allSatisfy { word in
+            guard let first = word.first else { return false }
+            return first.isUppercase
+        }
+    }
+
+    private func isLikelyCompanyLine(_ line: String) -> Bool {
+        let lowercased = line.lowercased()
+        let companyKeywords = [
+            "inc", "llc", "ltd", "corp", "company", "group",
+            "solutions", "studio", "agency", "systems", "technologies"
+        ]
+        return companyKeywords.contains { lowercased.contains($0) }
     }
 }

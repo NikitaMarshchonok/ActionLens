@@ -398,6 +398,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "ActionLens uses Calendar access to create events from detected dates and times.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "ActionLens uses Contacts access to create contacts from detected card details.";
 				INFOPLIST_KEY_NSRemindersUsageDescription = "ActionLens uses Reminders access to create reminders from imported items.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -431,6 +432,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "ActionLens uses Calendar access to create events from detected dates and times.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "ActionLens uses Contacts access to create contacts from detected card details.";
 				INFOPLIST_KEY_NSRemindersUsageDescription = "ActionLens uses Reminders access to create reminders from imported items.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

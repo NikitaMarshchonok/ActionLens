@@ -6,6 +6,7 @@ struct ActionLensApp: App {
     @Environment(\.scenePhase) private var scenePhase
 
     private let sharedInboxIngestionService = SharedInboxIngestionService()
+    private let itemTypeBackfillService = ItemTypeBackfillService()
 
     private let sharedModelContainer: ModelContainer = {
         let schema = Schema([InboxItem.self])
@@ -37,5 +38,6 @@ struct ActionLensApp: App {
     @MainActor
     private func ingestSharedPayloads() async {
         sharedInboxIngestionService.ingestPendingPayloads(into: sharedModelContainer.mainContext)
+        itemTypeBackfillService.refreshItemTypesIfNeeded(in: sharedModelContainer.mainContext)
     }
 }

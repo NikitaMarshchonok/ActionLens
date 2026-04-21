@@ -8,14 +8,19 @@ struct ExtractedEntities {
     var phoneNumber: String?
     var url: String?
     var detectedDate: Date?
+    var emails: [String] = []
+    var phoneNumbers: [String] = []
+    var urls: [String] = []
+    var urlHost: String?
+    var urlHosts: [String] = []
 
     var isEmpty: Bool {
         date == nil
             && time == nil
             && amount == nil
-            && email == nil
-            && phoneNumber == nil
-            && url == nil
+            && emails.isEmpty
+            && phoneNumbers.isEmpty
+            && urls.isEmpty
     }
 }
 
@@ -27,11 +32,12 @@ struct LocalEntityExtractionService: EntityExtractionServicing {
     func extractEntities(from text: String) -> ExtractedEntities {
         var entities = ExtractedEntities()
 
-        entities.email = firstMatch(
+        entities.emails = allMatches(
             for: "[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}",
             in: text,
             options: [.caseInsensitive]
         )
+        entities.email = entities.emails.first
 
         entities.amount = firstMatch(
             for: "(?:[$€£]|USD\\s?)\\d+(?:[\\.,]\\d{2})?",
@@ -48,10 +54,23 @@ struct LocalEntityExtractionService: EntityExtractionServicing {
                 if entities.phoneNumber == nil, let phoneNumber = match.phoneNumber {
                     entities.phoneNumber = phoneNumber
                 }
+                if let phoneNumber = match.phoneNumber,
+                   entities.phoneNumbers.contains(phoneNumber) == false {
+                    entities.phoneNumbers.append(phoneNumber)
+                }
+                entities.phoneNumber = entities.phoneNumbers.first
 
                 if entities.url == nil, let url = match.url, url.scheme != "mailto" {
-                    entities.url = url.absoluteString
+                    let urlString = url.absoluteString
+                    if entities.urls.contains(urlString) == false {
+                        entities.urls.append(urlString)
+                    }
+                    if let host = url.host, entities.urlHosts.contains(host) == false {
+                        entities.urlHosts.append(host)
+                    }
                 }
+                entities.url = entities.urls.first
+                entities.urlHost = entities.urlHosts.first
 
                 if let dateValue = match.date {
                     if entities.detectedDate == nil {
@@ -100,5 +119,29 @@ struct LocalEntityExtractionService: EntityExtractionServicing {
         }
 
         return String(text[matchRange])
+    }
+
+    private func allMatches(
+        for pattern: String,
+        in text: String,
+        options: NSRegularExpression.Options = []
+    ) -> [String] {
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: options) else {
+            return []
+        }
+
+        let range = NSRange(text.startIndex..<text.endIndex, in: text)
+        let matches = regex.matches(in: text, options: [], range: range)
+        var values: [String] = []
+
+        for match in matches {
+            guard let matchRange = Range(match.range, in: text) else { continue }
+            let value = String(text[matchRange])
+            if values.contains(value) == false {
+                values.append(value)
+            }
+        }
+
+        return values
     }
 }

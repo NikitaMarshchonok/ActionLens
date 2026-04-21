@@ -3,6 +3,7 @@ import Foundation
 enum SmartSuggestedAction: Hashable {
     case createReminder
     case createCalendarEvent
+    case createContact
     case saveForLater
     case markAsReviewed
     case openLink(String)
@@ -15,6 +16,8 @@ enum SmartSuggestedAction: Hashable {
             return "createReminder"
         case .createCalendarEvent:
             return "createCalendarEvent"
+        case .createContact:
+            return "createContact"
         case .saveForLater:
             return "saveForLater"
         case .markAsReviewed:
@@ -34,6 +37,8 @@ enum SmartSuggestedAction: Hashable {
             return "Create Reminder"
         case .createCalendarEvent:
             return "Create Calendar Event"
+        case .createContact:
+            return "Create Contact"
         case .saveForLater:
             return "Save for Later"
         case .markAsReviewed:
@@ -53,6 +58,8 @@ enum SmartSuggestedAction: Hashable {
             return "bell.badge"
         case .createCalendarEvent:
             return "calendar.badge.plus"
+        case .createContact:
+            return "person.crop.circle.badge.plus"
         case .saveForLater:
             return "bookmark"
         case .markAsReviewed:
@@ -68,11 +75,15 @@ enum SmartSuggestedAction: Hashable {
 }
 
 protocol SmartActionServicing {
-    func suggestedActions(entities: ExtractedEntities, currentStatus: String) -> [SmartSuggestedAction]
+    func suggestedActions(entities: ExtractedEntities, currentStatus: String, itemTypeRaw: String?) -> [SmartSuggestedAction]
 }
 
 struct LocalSmartActionService: SmartActionServicing {
-    func suggestedActions(entities: ExtractedEntities, currentStatus: String) -> [SmartSuggestedAction] {
+    func suggestedActions(
+        entities: ExtractedEntities,
+        currentStatus: String,
+        itemTypeRaw: String?
+    ) -> [SmartSuggestedAction] {
         var actions: [SmartSuggestedAction] = []
 
         if entities.date != nil || entities.time != nil {
@@ -90,6 +101,15 @@ struct LocalSmartActionService: SmartActionServicing {
 
         if let phoneNumber = entities.phoneNumber {
             actions.append(.copyPhone(phoneNumber))
+        }
+
+        let itemType = InboxItemType(rawValue: itemTypeRaw ?? "") ?? .general
+        let hasContactLikeValue = entities.email != nil
+            || entities.phoneNumber != nil
+            || entities.phoneNumbers.isEmpty == false
+            || (entities.urlHost != nil && itemType == .contact)
+        if hasContactLikeValue {
+            actions.append(.createContact)
         }
 
         if currentStatus != "saved_for_later" {

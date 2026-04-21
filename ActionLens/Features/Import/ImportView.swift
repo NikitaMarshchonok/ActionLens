@@ -1,0 +1,85 @@
+import PhotosUI
+import SwiftData
+import SwiftUI
+import UniformTypeIdentifiers
+
+struct ImportView: View {
+    @Environment(\.modelContext) private var modelContext
+    @State private var selectedPhotoItem: PhotosPickerItem?
+    @State private var isShowingFileImporter = false
+    @State private var lastImportMessage: String?
+    @State private var isImportingPhoto = false
+
+    private let viewModel = ImportViewModel()
+
+    var body: some View {
+        NavigationStack {
+            List {
+                Section("Import Sources") {
+                    PhotosPicker(selection: $selectedPhotoItem, matching: .images) {
+                        Label("Import Image from Photos", systemImage: "photo.on.rectangle")
+                    }
+
+                    Button {
+                        isShowingFileImporter = true
+                    } label: {
+                        Label("Import File", systemImage: "doc.badge.plus")
+                    }
+                }
+
+                Section("Notes") {
+                    Text("Imported items are added to Inbox with placeholder metadata.")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+
+                if isImportingPhoto {
+                    Section {
+                        ProgressView("Extracting text from selected image...")
+                    }
+                }
+
+                if let lastImportMessage {
+                    Section("Last Import") {
+                        Text(lastImportMessage)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            }
+            .navigationTitle("Import")
+            .onChange(of: selectedPhotoItem) { _, newSelection in
+                guard newSelection != nil else { return }
+                Task {
+                    isImportingPhoto = true
+
+                    guard let photoData = try? await newSelection?.loadTransferable(type: Data.self) else {
+                        lastImportMessage = "Photo import failed."
+                        selectedPhotoItem = nil
+                        isImportingPhoto = false
+                        return
+                    }
+
+                    let title = await viewModel.addPhotoImportedItem(photoData: photoData, in: modelContext)
+                    lastImportMessage = "Added \"\(title)\" from Photos."
+                    selectedPhotoItem = nil
+                    isImportingPhoto = false
+                }
+            }
+            .fileImporter(
+                isPresented: $isShowingFileImporter,
+                allowedContentTypes: [.image, .pdf, .item],
+                allowsMultipleSelection: false
+            ) { result in
+                switch result {
+                case .success(let urls):
+                    guard let url = urls.first else { return }
+                    let title = viewModel.addFileImportedItem(from: url, in: modelContext)
+                    lastImportMessage = "Added \"\(title)\" from Files."
+                case .failure:
+                    lastImportMessage = "Import canceled or failed."
+                }
+            }
+        }
+    }
+}

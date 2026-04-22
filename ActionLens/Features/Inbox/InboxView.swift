@@ -19,12 +19,25 @@ struct InboxView: View {
                             NavigationLink {
                                 InboxItemDetailView(item: item)
                             } label: {
-                                VStack(alignment: .leading, spacing: 4) {
+                                VStack(alignment: .leading, spacing: 8) {
                                     Text(item.title)
                                         .font(.headline)
+                                        .foregroundStyle(.primary)
 
-                                    Text(viewModel.subtitle(for: item))
-                                        .font(.subheadline)
+                                    HStack(spacing: 8) {
+                                        MetadataPill(
+                                            text: viewModel.itemTypeText(for: item),
+                                            tint: typeTint(for: item)
+                                        )
+
+                                        MetadataPill(
+                                            text: viewModel.statusText(for: item),
+                                            tint: statusTint(for: item)
+                                        )
+                                    }
+
+                                    Text("\(item.sourceType) · \(viewModel.dateText(for: item))")
+                                        .font(.caption)
                                         .foregroundStyle(.secondary)
                                 }
                                 .padding(.vertical, 4)
@@ -83,5 +96,53 @@ struct InboxView: View {
                 viewModel.seedIfNeeded(modelContext: modelContext)
             }
         }
+    }
+
+    private func typeTint(for item: InboxItem) -> Color {
+        let itemType = InboxItemType(rawValue: item.itemTypeRaw ?? "") ?? .general
+        switch itemType {
+        case .contact:
+            return .indigo
+        case .event:
+            return .blue
+        case .bill:
+            return .orange
+        case .booking:
+            return .teal
+        case .link:
+            return .purple
+        case .document:
+            return .brown
+        case .general:
+            return .gray
+        }
+    }
+
+    private func statusTint(for item: InboxItem) -> Color {
+        switch item.status.lowercased() {
+        case "reviewed", "done", "completed":
+            return .green
+        case "saved_for_later":
+            return .orange
+        case "in_review":
+            return .blue
+        default:
+            return .gray
+        }
+    }
+}
+
+private struct MetadataPill: View {
+    let text: String
+    let tint: Color
+
+    var body: some View {
+        Text(text)
+            .font(.caption2.weight(.semibold))
+            .foregroundStyle(tint)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 4)
+            .background(tint.opacity(0.12))
+            .clipShape(Capsule())
     }
 }

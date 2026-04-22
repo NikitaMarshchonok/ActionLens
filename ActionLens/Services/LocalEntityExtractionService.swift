@@ -18,6 +18,9 @@ struct ExtractedEntities {
         date == nil
             && time == nil
             && amount == nil
+            && email == nil
+            && phoneNumber == nil
+            && url == nil
             && emails.isEmpty
             && phoneNumbers.isEmpty
             && urls.isEmpty
@@ -51,16 +54,11 @@ struct LocalEntityExtractionService: EntityExtractionServicing {
             let matches = detector.matches(in: text, options: [], range: range)
 
             for match in matches {
-                if entities.phoneNumber == nil, let phoneNumber = match.phoneNumber {
-                    entities.phoneNumber = phoneNumber
-                }
                 if let phoneNumber = match.phoneNumber,
                    entities.phoneNumbers.contains(phoneNumber) == false {
                     entities.phoneNumbers.append(phoneNumber)
                 }
-                entities.phoneNumber = entities.phoneNumbers.first
-
-                if entities.url == nil, let url = match.url, url.scheme != "mailto" {
+                if let url = match.url, url.scheme != "mailto" {
                     let urlString = url.absoluteString
                     if entities.urls.contains(urlString) == false {
                         entities.urls.append(urlString)
@@ -69,8 +67,6 @@ struct LocalEntityExtractionService: EntityExtractionServicing {
                         entities.urlHosts.append(host)
                     }
                 }
-                entities.url = entities.urls.first
-                entities.urlHost = entities.urlHosts.first
 
                 if let dateValue = match.date {
                     if entities.detectedDate == nil {
@@ -85,6 +81,10 @@ struct LocalEntityExtractionService: EntityExtractionServicing {
                 }
             }
         }
+
+        entities.phoneNumber = entities.phoneNumbers.first
+        entities.url = entities.urls.first
+        entities.urlHost = entities.urlHosts.first
 
         if entities.time == nil {
             entities.time = firstMatch(

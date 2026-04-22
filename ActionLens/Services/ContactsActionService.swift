@@ -8,6 +8,9 @@ struct ContactDraft {
     var email: String?
     var phone: String?
     var url: String?
+    var emails: [String] = []
+    var phones: [String] = []
+    var urls: [String] = []
 
     var hasAnyValue: Bool {
         (givenName?.isEmpty == false)
@@ -16,6 +19,9 @@ struct ContactDraft {
             || (email?.isEmpty == false)
             || (phone?.isEmpty == false)
             || (url?.isEmpty == false)
+            || emails.isEmpty == false
+            || phones.isEmpty == false
+            || urls.isEmpty == false
     }
 }
 
@@ -41,17 +47,25 @@ final class ContactsActionService: ContactActionServicing {
         contact.familyName = draft.familyName ?? ""
         contact.organizationName = draft.organizationName ?? ""
 
-        if let email = draft.email, email.isEmpty == false {
-            contact.emailAddresses = [CNLabeledValue(label: CNLabelWork, value: email as NSString)]
+        let emailValues = draft.emails.isEmpty ? [draft.email].compactMap { $0 } : draft.emails
+        if emailValues.isEmpty == false {
+            contact.emailAddresses = emailValues.map {
+                CNLabeledValue(label: CNLabelWork, value: $0 as NSString)
+            }
         }
 
-        if let phone = draft.phone, phone.isEmpty == false {
-            let phoneValue = CNPhoneNumber(stringValue: phone)
-            contact.phoneNumbers = [CNLabeledValue(label: CNLabelPhoneNumberMobile, value: phoneValue)]
+        let phoneValues = draft.phones.isEmpty ? [draft.phone].compactMap { $0 } : draft.phones
+        if phoneValues.isEmpty == false {
+            contact.phoneNumbers = phoneValues.map {
+                CNLabeledValue(label: CNLabelPhoneNumberMobile, value: CNPhoneNumber(stringValue: $0))
+            }
         }
 
-        if let url = draft.url, url.isEmpty == false {
-            contact.urlAddresses = [CNLabeledValue(label: CNLabelURLAddressHomePage, value: url as NSString)]
+        let urlValues = draft.urls.isEmpty ? [draft.url].compactMap { $0 } : draft.urls
+        if urlValues.isEmpty == false {
+            contact.urlAddresses = urlValues.map {
+                CNLabeledValue(label: CNLabelURLAddressHomePage, value: $0 as NSString)
+            }
         }
 
         let request = CNSaveRequest()

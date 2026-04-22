@@ -53,14 +53,26 @@ struct InboxItemDetailView: View {
                     if let value = detectedEntities.amount {
                         LabeledContent("Amount", value: value)
                     }
-                    if let value = detectedEntities.email {
-                        LabeledContent("Email", value: value)
+                    if detectedEntities.emails.isEmpty == false {
+                        ForEach(Array(detectedEntities.emails.enumerated()), id: \.offset) { index, value in
+                            LabeledContent("Email \(index + 1)", value: value)
+                        }
+                    } else if let value = detectedEntities.email {
+                        LabeledContent("Email 1", value: value)
                     }
-                    if let value = detectedEntities.phoneNumber {
-                        LabeledContent("Phone", value: value)
+                    if detectedEntities.phoneNumbers.isEmpty == false {
+                        ForEach(Array(detectedEntities.phoneNumbers.enumerated()), id: \.offset) { index, value in
+                            LabeledContent("Phone \(index + 1)", value: value)
+                        }
+                    } else if let value = detectedEntities.phoneNumber {
+                        LabeledContent("Phone 1", value: value)
                     }
-                    if let value = detectedEntities.url {
-                        LabeledContent("URL", value: value)
+                    if detectedEntities.urls.isEmpty == false {
+                        ForEach(Array(detectedEntities.urls.enumerated()), id: \.offset) { index, value in
+                            LabeledContent("URL \(index + 1)", value: value)
+                        }
+                    } else if let value = detectedEntities.url {
+                        LabeledContent("URL 1", value: value)
                     }
                 }
             }

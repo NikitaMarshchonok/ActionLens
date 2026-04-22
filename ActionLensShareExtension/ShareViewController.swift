@@ -1,4 +1,3 @@
-import MobileCoreServices
 import Social
 import UniformTypeIdentifiers
 
@@ -65,6 +64,15 @@ final class ShareViewController: SLComposeServiceViewController {
 
         if provider.hasItemConformingToTypeIdentifier(UTType.item.identifier),
            let copiedFile = await copyFileRepresentation(from: provider, typeIdentifier: UTType.item.identifier) {
+            return ExtensionSharedInboxPayload(
+                type: .file,
+                fileName: copiedFile.lastPathComponent,
+                relativeFilePath: copiedFile.lastPathComponent
+            )
+        }
+
+        if provider.hasItemConformingToTypeIdentifier(UTType.data.identifier),
+           let copiedFile = await copyFileRepresentation(from: provider, typeIdentifier: UTType.data.identifier) {
             return ExtensionSharedInboxPayload(
                 type: .file,
                 fileName: copiedFile.lastPathComponent,

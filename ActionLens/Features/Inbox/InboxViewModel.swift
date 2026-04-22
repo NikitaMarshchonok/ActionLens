@@ -26,6 +26,16 @@ struct InboxViewModel {
         return "\(typeText) - \(item.sourceType) - \(item.status) - \(dateText)"
     }
 
+    func statusText(for item: InboxItem) -> String {
+        item.status
+            .replacingOccurrences(of: "_", with: " ")
+            .capitalized
+    }
+
+    func dateText(for item: InboxItem) -> String {
+        item.createdAt.formatted(date: .abbreviated, time: .shortened)
+    }
+
     func filteredItems(from items: [InboxItem], using filter: InboxFilterState) -> [InboxItem] {
         InboxFiltering.filteredItems(from: items, using: filter)
     }

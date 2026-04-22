@@ -29,7 +29,7 @@ struct LocalItemClassificationService: ItemClassificationServicing {
             return .contact
         }
 
-        if entities.url != nil {
+        if entities.urls.isEmpty == false || entities.url != nil {
             return .link
         }
 
@@ -86,7 +86,10 @@ struct LocalItemClassificationService: ItemClassificationServicing {
     ) -> Int {
         var score = 0
 
-        if entities.email != nil {
+        let emailCount = entities.emails.isEmpty ? (entities.email == nil ? 0 : 1) : entities.emails.count
+        if emailCount >= 2 {
+            score += 3
+        } else if emailCount == 1 {
             score += 2
         }
 
@@ -99,7 +102,7 @@ struct LocalItemClassificationService: ItemClassificationServicing {
             score += 1
         }
 
-        if entities.urlHost != nil {
+        if entities.urlHosts.isEmpty == false || entities.urlHost != nil {
             score += 1
         }
 

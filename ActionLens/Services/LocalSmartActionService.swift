@@ -91,22 +91,32 @@ struct LocalSmartActionService: SmartActionServicing {
             actions.append(.createCalendarEvent)
         }
 
-        if let url = entities.url {
+        for url in entities.urls {
+            actions.append(.openLink(url))
+        }
+        if entities.urls.isEmpty, let url = entities.url {
             actions.append(.openLink(url))
         }
 
-        if let email = entities.email {
+        for email in entities.emails {
+            actions.append(.copyEmail(email))
+        }
+        if entities.emails.isEmpty, let email = entities.email {
             actions.append(.copyEmail(email))
         }
 
-        if let phoneNumber = entities.phoneNumber {
+        for phoneNumber in entities.phoneNumbers {
+            actions.append(.copyPhone(phoneNumber))
+        }
+        if entities.phoneNumbers.isEmpty, let phoneNumber = entities.phoneNumber {
             actions.append(.copyPhone(phoneNumber))
         }
 
         let itemType = InboxItemType(rawValue: itemTypeRaw ?? "") ?? .general
-        let hasContactLikeValue = entities.email != nil
-            || entities.phoneNumber != nil
+        let hasContactLikeValue = entities.emails.isEmpty == false
             || entities.phoneNumbers.isEmpty == false
+            || entities.email != nil
+            || entities.phoneNumber != nil
             || (entities.urlHost != nil && itemType == .contact)
         if hasContactLikeValue {
             actions.append(.createContact)
@@ -120,6 +130,14 @@ struct LocalSmartActionService: SmartActionServicing {
             actions.append(.markAsReviewed)
         }
 
-        return actions
+        var seen: Set<String> = []
+        var deduplicated: [SmartSuggestedAction] = []
+        for action in actions {
+            if seen.contains(action.id) { continue }
+            seen.insert(action.id)
+            deduplicated.append(action)
+        }
+
+        return deduplicated
     }
 }

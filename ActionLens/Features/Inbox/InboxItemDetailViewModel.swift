@@ -119,7 +119,10 @@ struct InboxItemDetailViewModel {
             organizationName: companyLine,
             email: entities.email,
             phone: entities.phoneNumbers.first ?? entities.phoneNumber,
-            url: entities.url
+            url: entities.urls.first ?? entities.url,
+            emails: entities.emails,
+            phones: entities.phoneNumbers,
+            urls: entities.urls
         )
     }
 

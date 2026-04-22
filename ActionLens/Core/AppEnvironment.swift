@@ -5,6 +5,7 @@ struct AppEnvironment {
     let entityExtractionService: any EntityExtractionServicing
     let itemClassificationService: any ItemClassificationServicing
     let urgencyGroupingService: any InboxUrgencyGroupingServicing
+    let demoShowcaseService: any DemoShowcaseServicing
 
     static let live = AppEnvironment(
         shellService: AppShellService(),
@@ -12,6 +13,7 @@ struct AppEnvironment {
         ocrService: ImageOCRService(),
         entityExtractionService: LocalEntityExtractionService(),
         itemClassificationService: LocalItemClassificationService(),
-        urgencyGroupingService: LocalInboxUrgencyGroupingService()
+        urgencyGroupingService: LocalInboxUrgencyGroupingService(),
+        demoShowcaseService: DemoShowcaseService()
     )
 }

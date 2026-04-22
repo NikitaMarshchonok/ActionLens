@@ -5,6 +5,7 @@ struct ContactDraft {
     var givenName: String?
     var familyName: String?
     var organizationName: String?
+    var jobTitle: String?
     var email: String?
     var phone: String?
     var url: String?
@@ -16,6 +17,7 @@ struct ContactDraft {
         (givenName?.isEmpty == false)
             || (familyName?.isEmpty == false)
             || (organizationName?.isEmpty == false)
+            || (jobTitle?.isEmpty == false)
             || (email?.isEmpty == false)
             || (phone?.isEmpty == false)
             || (url?.isEmpty == false)
@@ -46,6 +48,7 @@ final class ContactsActionService: ContactActionServicing {
         contact.givenName = draft.givenName ?? ""
         contact.familyName = draft.familyName ?? ""
         contact.organizationName = draft.organizationName ?? ""
+        contact.jobTitle = draft.jobTitle ?? ""
 
         let emailValues = draft.emails.isEmpty ? [draft.email].compactMap { $0 } : draft.emails
         if emailValues.isEmpty == false {

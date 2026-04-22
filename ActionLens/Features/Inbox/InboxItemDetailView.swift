@@ -15,15 +15,37 @@ struct InboxItemDetailView: View {
 
     var body: some View {
         let detectedEntities = viewModel.extractedEntities(for: item)
-        let suggestedActions = viewModel.suggestedActions(for: item, entities: detectedEntities)
+        let contactQuickActions = viewModel.contactQuickActions(for: item, entities: detectedEntities)
+        let suggestedActions = viewModel
+            .suggestedActions(for: item, entities: detectedEntities)
+            .filter { action in
+                if case .createContact = action, contactQuickActions.isEmpty == false {
+                    return false
+                }
+                return true
+            }
 
         List {
             Section("Item Details") {
-                LabeledContent("Title", value: item.title)
-                LabeledContent("Type", value: viewModel.itemTypeText(for: item))
-                LabeledContent("Source Type", value: item.sourceType)
-                LabeledContent("Status", value: item.status)
-                LabeledContent("Created At", value: viewModel.createdAtText(for: item))
+                LabeledContent("Title") {
+                    Text(item.title)
+                        .font(.body.weight(.semibold))
+                        .multilineTextAlignment(.trailing)
+                }
+                LabeledContent("Type") {
+                    MetadataBadge(text: viewModel.itemTypeText(for: item), tint: .indigo)
+                }
+                LabeledContent("Source Type") {
+                    Text(item.sourceType)
+                        .foregroundStyle(.secondary)
+                }
+                LabeledContent("Status") {
+                    MetadataBadge(text: item.status.replacingOccurrences(of: "_", with: " ").capitalized, tint: statusTint)
+                }
+                LabeledContent("Created At") {
+                    Text(viewModel.createdAtText(for: item))
+                        .foregroundStyle(.secondary)
+                }
             }
 
             Section("Extracted Text") {
@@ -45,34 +67,79 @@ struct InboxItemDetailView: View {
                         .foregroundStyle(.secondary)
                 } else {
                     if let value = detectedEntities.date {
-                        LabeledContent("Date", value: value)
+                        DetectedValueRow(label: "Date", value: value, systemImage: "calendar")
                     }
                     if let value = detectedEntities.time {
-                        LabeledContent("Time", value: value)
+                        DetectedValueRow(label: "Time", value: value, systemImage: "clock")
                     }
                     if let value = detectedEntities.amount {
-                        LabeledContent("Amount", value: value)
+                        DetectedValueRow(label: "Amount", value: value, systemImage: "creditcard")
                     }
                     if detectedEntities.emails.isEmpty == false {
                         ForEach(Array(detectedEntities.emails.enumerated()), id: \.offset) { index, value in
-                            LabeledContent("Email \(index + 1)", value: value)
+                            DetectedValueRow(label: "Email \(index + 1)", value: value, systemImage: "envelope")
                         }
                     } else if let value = detectedEntities.email {
-                        LabeledContent("Email 1", value: value)
+                        DetectedValueRow(label: "Email 1", value: value, systemImage: "envelope")
                     }
                     if detectedEntities.phoneNumbers.isEmpty == false {
                         ForEach(Array(detectedEntities.phoneNumbers.enumerated()), id: \.offset) { index, value in
-                            LabeledContent("Phone \(index + 1)", value: value)
+                            DetectedValueRow(label: "Phone \(index + 1)", value: value, systemImage: "phone")
                         }
                     } else if let value = detectedEntities.phoneNumber {
-                        LabeledContent("Phone 1", value: value)
+                        DetectedValueRow(label: "Phone 1", value: value, systemImage: "phone")
                     }
                     if detectedEntities.urls.isEmpty == false {
                         ForEach(Array(detectedEntities.urls.enumerated()), id: \.offset) { index, value in
-                            LabeledContent("URL \(index + 1)", value: value)
+                            DetectedValueRow(label: "URL \(index + 1)", value: value, systemImage: "link")
                         }
                     } else if let value = detectedEntities.url {
-                        LabeledContent("URL 1", value: value)
+                        DetectedValueRow(label: "URL 1", value: value, systemImage: "link")
+                    }
+                }
+            }
+
+            if hasContactInsights(detectedEntities) {
+                Section("Contact Insights") {
+                    if let personName = detectedEntities.personName {
+                        LabeledContent("Name", value: personName)
+                    }
+                    if let companyName = detectedEntities.companyName {
+                        LabeledContent("Company", value: companyName)
+                    }
+                    if let jobTitle = detectedEntities.jobTitle {
+                        LabeledContent("Role", value: jobTitle)
+                    }
+                    if detectedEntities.emails.isEmpty == false {
+                        LabeledContent("Emails", value: "\(detectedEntities.emails.count)")
+                    }
+                    if detectedEntities.phoneNumbers.isEmpty == false {
+                        LabeledContent("Phones", value: "\(detectedEntities.phoneNumbers.count)")
+                    }
+                    if detectedEntities.urls.isEmpty == false {
+                        LabeledContent("Links", value: "\(detectedEntities.urls.count)")
+                    }
+                }
+            }
+
+            if contactQuickActions.isEmpty == false {
+                Section("Contact Quick Actions") {
+                    ForEach(contactQuickActions, id: \.id) { action in
+                        Button {
+                            Task {
+                                lastActionMessage = await viewModel.performContactQuickAction(
+                                    action,
+                                    for: item,
+                                    entities: detectedEntities,
+                                    openURLHandler: { url in
+                                        openURL(url)
+                                    }
+                                )
+                            }
+                        } label: {
+                            Label(action.title, systemImage: action.systemImage)
+                                .font(.body.weight(.medium))
+                        }
                     }
                 }
             }
@@ -98,6 +165,7 @@ struct InboxItemDetailView: View {
                             }
                         } label: {
                             Label(action.title, systemImage: action.systemImage)
+                                .font(.body.weight(.medium))
                         }
                     }
                 }
@@ -111,7 +179,62 @@ struct InboxItemDetailView: View {
                 }
             }
         }
+        .listStyle(.insetGrouped)
         .navigationTitle("Review")
         .navigationBarTitleDisplayMode(.inline)
+    }
+
+    private var statusTint: Color {
+        switch item.status.lowercased() {
+        case "reviewed", "done", "completed":
+            return .green
+        case "saved_for_later":
+            return .orange
+        case "in_review":
+            return .blue
+        default:
+            return .gray
+        }
+    }
+
+    private func hasContactInsights(_ entities: ExtractedEntities) -> Bool {
+        entities.personName != nil
+            || entities.companyName != nil
+            || entities.jobTitle != nil
+            || entities.emails.isEmpty == false
+            || entities.phoneNumbers.isEmpty == false
+            || entities.urls.isEmpty == false
+    }
+}
+
+private struct MetadataBadge: View {
+    let text: String
+    let tint: Color
+
+    var body: some View {
+        Text(text)
+            .font(.caption.weight(.semibold))
+            .foregroundStyle(tint)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 4)
+            .background(tint.opacity(0.14))
+            .clipShape(Capsule())
+    }
+}
+
+private struct DetectedValueRow: View {
+    let label: String
+    let value: String
+    let systemImage: String
+
+    var body: some View {
+        LabeledContent {
+            Text(value)
+                .foregroundStyle(.primary)
+                .textSelection(.enabled)
+        } label: {
+            Label(label, systemImage: systemImage)
+                .foregroundStyle(.secondary)
+        }
     }
 }

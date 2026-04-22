@@ -5,11 +5,13 @@ struct SettingsViewModel {
     let title: String
     private let ingestionService: SharedInboxIngestionService
     private let debugStateStore: SharedInboxDebugStateStore
+    private let demoShowcaseService: any DemoShowcaseServicing
 
     init(environment: AppEnvironment = .live) {
         title = environment.shellService.appDisplayName
         ingestionService = SharedInboxIngestionService(environment: environment)
         debugStateStore = SharedInboxDebugStateStore()
+        demoShowcaseService = environment.demoShowcaseService
     }
 
     @MainActor
@@ -19,5 +21,15 @@ struct SettingsViewModel {
 
     func lastIngestionReport() -> SharedInboxIngestionReport? {
         debugStateStore.loadLastReport()
+    }
+
+    @MainActor
+    func seedDemoData(into modelContext: ModelContext) -> DemoShowcaseReport {
+        demoShowcaseService.seedDemoItems(in: modelContext)
+    }
+
+    @MainActor
+    func clearDemoData(into modelContext: ModelContext) -> DemoShowcaseReport {
+        demoShowcaseService.clearDemoItems(in: modelContext)
     }
 }

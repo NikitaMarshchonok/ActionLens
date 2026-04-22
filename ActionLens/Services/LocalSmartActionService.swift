@@ -117,6 +117,9 @@ struct LocalSmartActionService: SmartActionServicing {
             || entities.phoneNumbers.isEmpty == false
             || entities.email != nil
             || entities.phoneNumber != nil
+            || entities.personName != nil
+            || entities.companyName != nil
+            || entities.jobTitle != nil
             || (entities.urlHost != nil && itemType == .contact)
         if hasContactLikeValue {
             actions.append(.createContact)

@@ -4,6 +4,7 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var debugReportText: String?
+    @State private var demoReportText: String?
 
     private let viewModel = SettingsViewModel()
 
@@ -21,6 +22,16 @@ struct SettingsView: View {
                         let report = viewModel.ingestSharedQueue(into: modelContext)
                         debugReportText = report.summaryText
                     }
+
+                    Button("Seed Demo Showcase Data") {
+                        let report = viewModel.seedDemoData(into: modelContext)
+                        demoReportText = report.message
+                    }
+
+                    Button("Clear Demo Showcase Data", role: .destructive) {
+                        let report = viewModel.clearDemoData(into: modelContext)
+                        demoReportText = report.message
+                    }
                 }
 
                 Section("Share Ingestion") {
@@ -34,6 +45,18 @@ struct SettingsView: View {
                             .foregroundStyle(.secondary)
                     } else {
                         Text("No ingestion report yet.")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
+                Section("Demo Showcase") {
+                    if let demoReportText {
+                        Text(demoReportText)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    } else {
+                        Text("Use Developer actions to seed or clear demo items.")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }

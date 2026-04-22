@@ -13,6 +13,9 @@ struct ExtractedEntities {
     var urls: [String] = []
     var urlHost: String?
     var urlHosts: [String] = []
+    var personName: String?
+    var companyName: String?
+    var jobTitle: String?
 
     var isEmpty: Bool {
         date == nil
@@ -24,6 +27,9 @@ struct ExtractedEntities {
             && emails.isEmpty
             && phoneNumbers.isEmpty
             && urls.isEmpty
+            && personName == nil
+            && companyName == nil
+            && jobTitle == nil
     }
 }
 
@@ -100,6 +106,11 @@ struct LocalEntityExtractionService: EntityExtractionServicing {
             )
         }
 
+        let contactHints = contactHints(from: text)
+        entities.personName = contactHints.personName
+        entities.companyName = contactHints.companyName
+        entities.jobTitle = contactHints.jobTitle
+
         return entities
     }
 
@@ -143,5 +154,49 @@ struct LocalEntityExtractionService: EntityExtractionServicing {
         }
 
         return values
+    }
+
+    private func contactHints(from text: String) -> (personName: String?, companyName: String?, jobTitle: String?) {
+        let lines = text
+            .split(separator: "\n")
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { $0.isEmpty == false }
+
+        let personName = lines.first(where: isLikelyPersonNameLine)
+        let companyName = lines.first(where: isLikelyCompanyLine)
+        let jobTitle = lines.first(where: isLikelyRoleLine)
+
+        return (personName, companyName, jobTitle)
+    }
+
+    private func isLikelyPersonNameLine(_ line: String) -> Bool {
+        let lowercased = line.lowercased()
+        if lowercased.contains("@") || lowercased.contains("http") || lowercased.contains("www.") {
+            return false
+        }
+        let words = line.split(separator: " ")
+        guard words.count >= 2, words.count <= 3 else { return false }
+        return words.allSatisfy { word in
+            guard let first = word.first else { return false }
+            return first.isUppercase
+        }
+    }
+
+    private func isLikelyCompanyLine(_ line: String) -> Bool {
+        let lowercased = line.lowercased()
+        let companyKeywords = [
+            "inc", "llc", "ltd", "corp", "company", "group",
+            "solutions", "studio", "agency", "systems", "technologies"
+        ]
+        return companyKeywords.contains { lowercased.contains($0) }
+    }
+
+    private func isLikelyRoleLine(_ line: String) -> Bool {
+        let lowercased = line.lowercased()
+        let roleKeywords = [
+            "manager", "director", "founder", "ceo", "cto", "cfo",
+            "sales", "marketing", "engineer", "consultant", "designer", "specialist"
+        ]
+        return roleKeywords.contains { lowercased.contains($0) }
     }
 }

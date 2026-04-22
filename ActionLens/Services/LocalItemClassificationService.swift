@@ -106,6 +106,18 @@ struct LocalItemClassificationService: ItemClassificationServicing {
             score += 1
         }
 
+        if entities.personName != nil {
+            score += 1
+        }
+
+        if entities.companyName != nil {
+            score += 1
+        }
+
+        if entities.jobTitle != nil {
+            score += 1
+        }
+
         if hasRoleLikeKeywords(in: normalized) {
             score += 1
         }

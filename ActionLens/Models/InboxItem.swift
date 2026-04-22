@@ -10,6 +10,7 @@ final class InboxItem {
     var status: String
     var extractedText: String?
     var itemTypeRaw: String?
+    var isDemoItem: Bool
 
     init(
         id: UUID = UUID(),
@@ -18,7 +19,8 @@ final class InboxItem {
         createdAt: Date = .now,
         status: String,
         extractedText: String? = nil,
-        itemTypeRaw: String? = nil
+        itemTypeRaw: String? = nil,
+        isDemoItem: Bool = false
     ) {
         self.id = id
         self.title = title
@@ -27,5 +29,6 @@ final class InboxItem {
         self.status = status
         self.extractedText = extractedText
         self.itemTypeRaw = itemTypeRaw
+        self.isDemoItem = isDemoItem
     }
 }

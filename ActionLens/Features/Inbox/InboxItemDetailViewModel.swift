@@ -3,6 +3,59 @@ import SwiftData
 import UIKit
 
 struct InboxItemDetailViewModel {
+    enum ContactQuickAction: Hashable {
+        case call(String)
+        case email(String)
+        case openWebsite(String)
+        case createContact
+        case copyAllContactInfo(String)
+
+        var id: String {
+            switch self {
+            case .call(let value):
+                return "call:\(value)"
+            case .email(let value):
+                return "email:\(value)"
+            case .openWebsite(let value):
+                return "website:\(value)"
+            case .createContact:
+                return "createContact"
+            case .copyAllContactInfo:
+                return "copyAllInfo"
+            }
+        }
+
+        var title: String {
+            switch self {
+            case .call(let value):
+                return "Call \(value)"
+            case .email(let value):
+                return "Email \(value)"
+            case .openWebsite(let value):
+                return "Open \(value)"
+            case .createContact:
+                return "Create Contact"
+            case .copyAllContactInfo:
+                return "Copy All Contact Info"
+            }
+        }
+
+        var systemImage: String {
+            switch self {
+            case .call:
+                return "phone"
+            case .email:
+                return "envelope"
+            case .openWebsite:
+                return "globe"
+            case .createContact:
+                return "person.crop.circle.badge.plus"
+            case .copyAllContactInfo:
+                return "doc.on.doc"
+            }
+        }
+    }
+
     private let entityExtractionService: any EntityExtractionServicing
     private let smartActionService: any SmartActionServicing
     private let productivityActionService: any ProductivityActionServicing
@@ -44,6 +97,44 @@ struct InboxItemDetailViewModel {
             currentStatus: item.status,
             itemTypeRaw: item.itemTypeRaw
         )
+    }
+
+    func contactQuickActions(for item: InboxItem, entities: ExtractedEntities) -> [ContactQuickAction] {
+        var actions: [ContactQuickAction] = []
+
+        let phones = entities.phoneNumbers.isEmpty ? [entities.phoneNumber].compactMap { $0 } : entities.phoneNumbers
+        let emails = entities.emails.isEmpty ? [entities.email].compactMap { $0 } : entities.emails
+        let websites = entities.urls.isEmpty ? [entities.url].compactMap { $0 } : entities.urls
+
+        for phone in phones {
+            actions.append(.call(phone))
+        }
+        for email in emails {
+            actions.append(.email(email))
+        }
+        for website in websites {
+            actions.append(.openWebsite(website))
+        }
+
+        if itemTypeText(for: item) == InboxItemType.contact.displayName
+            || phones.isEmpty == false
+            || emails.isEmpty == false
+            || websites.isEmpty == false
+            || entities.personName != nil
+            || entities.companyName != nil {
+            actions.append(.createContact)
+        }
+
+        if let copyPayload = combinedContactInfoText(entities: entities), copyPayload.isEmpty == false {
+            actions.append(.copyAllContactInfo(copyPayload))
+        }
+
+        var seen: Set<String> = []
+        return actions.filter {
+            if seen.contains($0.id) { return false }
+            seen.insert($0.id)
+            return true
+        }
     }
 
     func performSuggestedAction(
@@ -90,20 +181,47 @@ struct InboxItemDetailViewModel {
         }
     }
 
+    func performContactQuickAction(
+        _ action: ContactQuickAction,
+        for item: InboxItem,
+        entities: ExtractedEntities,
+        openURLHandler: (URL) -> Void
+    ) async -> String {
+        switch action {
+        case .call(let value):
+            let sanitized = value.filter { "0123456789+".contains($0) }
+            guard let url = URL(string: "tel://\(sanitized)") else {
+                return "Invalid phone number."
+            }
+            openURLHandler(url)
+            return "Calling \(value)."
+        case .email(let value):
+            guard let encoded = value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                  let url = URL(string: "mailto:\(encoded)") else {
+                return "Invalid email."
+            }
+            openURLHandler(url)
+            return "Opening email composer."
+        case .openWebsite(let value):
+            guard let url = URL(string: value) else {
+                return "Invalid URL."
+            }
+            openURLHandler(url)
+            return "Opening website."
+        case .createContact:
+            let draft = makeContactDraft(for: item, entities: entities)
+            return await contactActionService.createContact(from: draft)
+        case .copyAllContactInfo(let payload):
+            UIPasteboard.general.string = payload
+            return "All contact info copied."
+        }
+    }
+
     private func makeContactDraft(for item: InboxItem, entities: ExtractedEntities) -> ContactDraft {
-        let text = item.extractedText ?? ""
-        let lines = text
-            .split(separator: "\n")
-            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-            .filter { $0.isEmpty == false }
-
-        let personNameLine = lines.first(where: isLikelyPersonNameLine)
-        let companyLine = lines.first(where: isLikelyCompanyLine)
-
         var givenName: String?
         var familyName: String?
 
-        if let personNameLine {
+        if let personNameLine = entities.personName {
             let parts = personNameLine.split(separator: " ").map(String.init)
             if parts.isEmpty == false {
                 givenName = parts.first
@@ -116,7 +234,8 @@ struct InboxItemDetailViewModel {
         return ContactDraft(
             givenName: givenName,
             familyName: familyName,
-            organizationName: companyLine,
+            organizationName: entities.companyName,
+            jobTitle: entities.jobTitle,
             email: entities.email,
             phone: entities.phoneNumbers.first ?? entities.phoneNumber,
             url: entities.urls.first ?? entities.url,
@@ -126,25 +245,29 @@ struct InboxItemDetailViewModel {
         )
     }
 
-    private func isLikelyPersonNameLine(_ line: String) -> Bool {
-        let lowercased = line.lowercased()
-        if lowercased.contains("@") || lowercased.contains("http") || lowercased.contains("www.") {
-            return false
-        }
-        let words = line.split(separator: " ")
-        guard words.count >= 2, words.count <= 3 else { return false }
-        return words.allSatisfy { word in
-            guard let first = word.first else { return false }
-            return first.isUppercase
-        }
-    }
+    private func combinedContactInfoText(entities: ExtractedEntities) -> String? {
+        var lines: [String] = []
 
-    private func isLikelyCompanyLine(_ line: String) -> Bool {
-        let lowercased = line.lowercased()
-        let companyKeywords = [
-            "inc", "llc", "ltd", "corp", "company", "group",
-            "solutions", "studio", "agency", "systems", "technologies"
-        ]
-        return companyKeywords.contains { lowercased.contains($0) }
+        if let personName = entities.personName {
+            lines.append("Name: \(personName)")
+        }
+        if let companyName = entities.companyName {
+            lines.append("Company: \(companyName)")
+        }
+        if let role = entities.jobTitle {
+            lines.append("Role: \(role)")
+        }
+        for email in entities.emails {
+            lines.append("Email: \(email)")
+        }
+        for phone in entities.phoneNumbers {
+            lines.append("Phone: \(phone)")
+        }
+        for url in entities.urls {
+            lines.append("Website: \(url)")
+        }
+
+        guard lines.isEmpty == false else { return nil }
+        return lines.joined(separator: "\n")
     }
 }

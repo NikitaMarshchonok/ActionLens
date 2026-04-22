@@ -14,35 +14,52 @@ struct InboxView: View {
         NavigationStack {
             List {
                 ForEach(groupedSections) { section in
-                    Section(section.group.title) {
+                    Section {
                         ForEach(section.items) { item in
                             NavigationLink {
                                 InboxItemDetailView(item: item)
                             } label: {
-                                VStack(alignment: .leading, spacing: 8) {
+                                VStack(alignment: .leading, spacing: 10) {
                                     Text(item.title)
-                                        .font(.headline)
+                                        .font(.headline.weight(.semibold))
                                         .foregroundStyle(.primary)
+                                        .lineLimit(2)
 
                                     HStack(spacing: 8) {
                                         MetadataPill(
                                             text: viewModel.itemTypeText(for: item),
+                                            systemImage: typeIcon(for: item),
                                             tint: typeTint(for: item)
                                         )
 
                                         MetadataPill(
                                             text: viewModel.statusText(for: item),
+                                            systemImage: statusIcon(for: item),
                                             tint: statusTint(for: item)
                                         )
                                     }
 
-                                    Text("\(item.sourceType) · \(viewModel.dateText(for: item))")
-                                        .font(.caption)
-                                        .foregroundStyle(.secondary)
+                                    HStack(spacing: 10) {
+                                        Label(item.sourceType, systemImage: "tray")
+                                        Label(viewModel.dateText(for: item), systemImage: "calendar")
+                                    }
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
                                 }
-                                .padding(.vertical, 4)
+                                .padding(.vertical, 6)
                             }
                         }
+                    } header: {
+                        HStack {
+                            Text(section.group.title)
+                                .font(.subheadline.weight(.semibold))
+                                .foregroundStyle(.secondary)
+                            Spacer()
+                            Text("\(section.items.count)")
+                                .font(.caption.weight(.semibold))
+                                .foregroundStyle(.tertiary)
+                        }
+                        .textCase(.uppercase)
                     }
                 }
             }
@@ -130,17 +147,51 @@ struct InboxView: View {
             return .gray
         }
     }
+
+    private func typeIcon(for item: InboxItem) -> String {
+        let itemType = InboxItemType(rawValue: item.itemTypeRaw ?? "") ?? .general
+        switch itemType {
+        case .contact:
+            return "person.crop.circle"
+        case .event:
+            return "calendar"
+        case .bill:
+            return "creditcard"
+        case .booking:
+            return "airplane"
+        case .link:
+            return "link"
+        case .document:
+            return "doc.text"
+        case .general:
+            return "square.grid.2x2"
+        }
+    }
+
+    private func statusIcon(for item: InboxItem) -> String {
+        switch item.status.lowercased() {
+        case "reviewed", "done", "completed":
+            return "checkmark.circle"
+        case "saved_for_later":
+            return "bookmark"
+        case "in_review":
+            return "clock"
+        default:
+            return "circle"
+        }
+    }
 }
 
 private struct MetadataPill: View {
     let text: String
+    let systemImage: String
     let tint: Color
 
     var body: some View {
-        Text(text)
+        Label(text, systemImage: systemImage)
             .font(.caption2.weight(.semibold))
             .foregroundStyle(tint)
-            .padding(.horizontal, 8)
+            .padding(.horizontal, 9)
             .padding(.vertical, 4)
             .background(tint.opacity(0.12))
             .clipShape(Capsule())

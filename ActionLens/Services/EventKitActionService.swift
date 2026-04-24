@@ -1,5 +1,6 @@
 import EventKit
 import Foundation
+import os
 
 protocol ProductivityActionServicing {
     func createReminder(title: String, dueDate: Date?) async -> String
@@ -7,6 +8,7 @@ protocol ProductivityActionServicing {
 }
 
 final class EventKitActionService: ProductivityActionServicing {
+    private static let logger = Logger(subsystem: "ActionLens", category: "EventKitActions")
     private let eventStore = EKEventStore()
 
     func createReminder(title: String, dueDate: Date?) async -> String {
@@ -30,6 +32,7 @@ final class EventKitActionService: ProductivityActionServicing {
             try eventStore.save(reminder, commit: true)
             return dueDate == nil ? "Reminder created (no due date)." : "Reminder created."
         } catch {
+            Self.logger.error("Failed to save reminder: \(error.localizedDescription, privacy: .public)")
             return "Could not create reminder."
         }
     }
@@ -60,48 +63,36 @@ final class EventKitActionService: ProductivityActionServicing {
             }
             return "Calendar event created."
         } catch {
+            Self.logger.error("Failed to save calendar event: \(error.localizedDescription, privacy: .public)")
             return "Could not create calendar event."
         }
     }
 
     private func requestReminderAccess() async -> Bool {
-        if #available(iOS 17.0, *) {
-            let status = EKEventStore.authorizationStatus(for: .reminder)
-            if status == .fullAccess || status == .authorized {
-                return true
-            }
-        } else if EKEventStore.authorizationStatus(for: .reminder) == .authorized {
+        let status = EKEventStore.authorizationStatus(for: .reminder)
+        if status == .fullAccess || status == .authorized {
             return true
         }
 
-        if #available(iOS 17.0, *) {
-            return (try? await eventStore.requestFullAccessToReminders()) ?? false
-        }
-
-        return await withCheckedContinuation { continuation in
-            eventStore.requestAccess(to: .reminder) { granted, _ in
-                continuation.resume(returning: granted)
-            }
+        do {
+            return try await eventStore.requestFullAccessToReminders()
+        } catch {
+            Self.logger.error("Failed to request reminders access: \(error.localizedDescription, privacy: .public)")
+            return false
         }
     }
 
     private func requestCalendarAccess() async -> Bool {
-        if #available(iOS 17.0, *) {
-            let status = EKEventStore.authorizationStatus(for: .event)
-            if status == .writeOnly || status == .fullAccess || status == .authorized {
-                return true
-            }
-            return (try? await eventStore.requestWriteOnlyAccessToEvents()) ?? false
-        }
-
-        if EKEventStore.authorizationStatus(for: .event) == .authorized {
+        let status = EKEventStore.authorizationStatus(for: .event)
+        if status == .writeOnly || status == .fullAccess || status == .authorized {
             return true
         }
 
-        return await withCheckedContinuation { continuation in
-            eventStore.requestAccess(to: .event) { granted, _ in
-                continuation.resume(returning: granted)
-            }
+        do {
+            return try await eventStore.requestWriteOnlyAccessToEvents()
+        } catch {
+            Self.logger.error("Failed to request calendar access: \(error.localizedDescription, privacy: .public)")
+            return false
         }
     }
 }

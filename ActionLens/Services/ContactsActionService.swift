@@ -1,5 +1,6 @@
 import Contacts
 import Foundation
+import os
 
 struct ContactDraft {
     var givenName: String?
@@ -32,6 +33,7 @@ protocol ContactActionServicing {
 }
 
 final class ContactsActionService: ContactActionServicing {
+    private static let logger = Logger(subsystem: "ActionLens", category: "ContactsActions")
     private let contactStore = CNContactStore()
 
     func createContact(from draft: ContactDraft) async -> String {
@@ -78,6 +80,7 @@ final class ContactsActionService: ContactActionServicing {
             try contactStore.execute(request)
             return "Contact created."
         } catch {
+            Self.logger.error("Failed to create contact: \(error.localizedDescription, privacy: .public)")
             return "Could not create contact."
         }
     }
@@ -88,7 +91,10 @@ final class ContactsActionService: ContactActionServicing {
             return true
         case .notDetermined:
             return await withCheckedContinuation { continuation in
-                contactStore.requestAccess(for: .contacts) { granted, _ in
+                contactStore.requestAccess(for: .contacts) { granted, error in
+                    if let error {
+                        Self.logger.error("Contacts permission request failed: \(error.localizedDescription, privacy: .public)")
+                    }
                     continuation.resume(returning: granted)
                 }
             }

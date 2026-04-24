@@ -1,8 +1,10 @@
 import Social
 import UniformTypeIdentifiers
+import os
 
 final class ShareViewController: SLComposeServiceViewController {
     private let sharedStore = ExtensionSharedInboxStore()
+    private let logger = Logger(subsystem: "ActionLens", category: "ShareExtension")
 
     override func isContentValid() -> Bool {
         true
@@ -10,8 +12,17 @@ final class ShareViewController: SLComposeServiceViewController {
 
     override func didSelectPost() {
         Task {
-            await handleInputItems()
-            extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
+            if await handleInputItems() {
+                extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
+            } else {
+                logger.error("Share extension could not import shared content.")
+                let error = NSError(
+                    domain: "ActionLensShareExtension",
+                    code: 1,
+                    userInfo: [NSLocalizedDescriptionKey: "Could not import this shared item."]
+                )
+                extensionContext?.cancelRequest(withError: error)
+            }
         }
     }
 
@@ -19,9 +30,9 @@ final class ShareViewController: SLComposeServiceViewController {
         []
     }
 
-    private func handleInputItems() async {
+    private func handleInputItems() async -> Bool {
         guard let extensionItems = extensionContext?.inputItems as? [NSExtensionItem] else {
-            return
+            return false
         }
 
         for extensionItem in extensionItems {
@@ -30,10 +41,12 @@ final class ShareViewController: SLComposeServiceViewController {
             for itemProvider in attachments {
                 if let payload = await payloadFromProvider(itemProvider) {
                     sharedStore.enqueue(payload)
-                    return
+                    return true
                 }
             }
         }
+
+        return false
     }
 
     private func payloadFromProvider(_ provider: NSItemProvider) async -> ExtensionSharedInboxPayload? {

@@ -2,8 +2,10 @@ import PhotosUI
 import SwiftData
 import SwiftUI
 import UniformTypeIdentifiers
+import os
 
 struct ImportView: View {
+    private static let logger = Logger(subsystem: "ActionLens", category: "ImportView")
     @Environment(\.modelContext) private var modelContext
     @State private var selectedPhotoItem: PhotosPickerItem?
     @State private var isShowingFileImporter = false
@@ -28,7 +30,7 @@ struct ImportView: View {
                 }
 
                 Section("Notes") {
-                    Text("Imported items are added to Inbox with placeholder metadata.")
+                    Text("Imported items are added to Inbox and analyzed for text/actions when available.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
@@ -53,7 +55,24 @@ struct ImportView: View {
                 Task {
                     isImportingPhoto = true
 
-                    guard let photoData = try? await newSelection?.loadTransferable(type: Data.self) else {
+                    guard let newSelection else {
+                        lastImportMessage = "Photo import failed."
+                        selectedPhotoItem = nil
+                        isImportingPhoto = false
+                        return
+                    }
+
+                    let photoData: Data
+                    do {
+                        guard let loadedData = try await newSelection.loadTransferable(type: Data.self) else {
+                            lastImportMessage = "Could not read selected photo."
+                            selectedPhotoItem = nil
+                            isImportingPhoto = false
+                            return
+                        }
+                        photoData = loadedData
+                    } catch {
+                        Self.logger.error("Photo transfer failed: \(error.localizedDescription, privacy: .public)")
                         lastImportMessage = "Photo import failed."
                         selectedPhotoItem = nil
                         isImportingPhoto = false

@@ -21,6 +21,14 @@ struct SettingsView: View {
                     }
                 }
 
+                if let ingestionFailureMessage = viewModel.lastIngestionFailureMessage() {
+                    Section("Import Status") {
+                        Text("Some shared imports could not be saved. \(ingestionFailureMessage)")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
 #if DEBUG
                 Section("Developer") {
                     Button("Ingest Shared Queue Now") {

@@ -56,7 +56,10 @@ struct ExtensionSharedInboxStore {
     }
 
     func enqueue(_ payload: ExtensionSharedInboxPayload) {
-        guard let defaults = UserDefaults(suiteName: appGroupIdentifier) else { return }
+        guard let defaults = UserDefaults(suiteName: appGroupIdentifier) else {
+            Self.logger.error("App Group defaults unavailable in share extension enqueue.")
+            return
+        }
         var queue = loadQueue(from: defaults)
         queue.append(payload)
         saveQueue(queue, to: defaults)

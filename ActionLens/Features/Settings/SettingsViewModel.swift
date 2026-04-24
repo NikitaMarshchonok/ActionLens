@@ -23,6 +23,14 @@ struct SettingsViewModel {
         debugStateStore.loadLastReport()
     }
 
+    func lastIngestionFailureMessage() -> String? {
+        guard let report = debugStateStore.loadLastReport(),
+              let message = report.errorMessage else {
+            return nil
+        }
+        return message
+    }
+
     @MainActor
     func seedDemoData(into modelContext: ModelContext) -> DemoShowcaseReport {
         demoShowcaseService.seedDemoItems(in: modelContext)

@@ -15,7 +15,10 @@ struct SharedInboxStore {
     }
 
     func enqueue(_ payload: SharedInboxPayload) {
-        guard let defaults = UserDefaults(suiteName: appGroupIdentifier) else { return }
+        guard let defaults = UserDefaults(suiteName: appGroupIdentifier) else {
+            Self.logger.error("App Group defaults unavailable for enqueue.")
+            return
+        }
         var queue = loadQueue(from: defaults)
         queue.append(payload)
         saveQueue(queue, to: defaults)
@@ -29,7 +32,10 @@ struct SharedInboxStore {
     }
 
     func pendingPayloads() -> [SharedInboxPayload] {
-        guard let defaults = UserDefaults(suiteName: appGroupIdentifier) else { return [] }
+        guard let defaults = UserDefaults(suiteName: appGroupIdentifier) else {
+            Self.logger.error("App Group defaults unavailable for reading pending payloads.")
+            return []
+        }
         return loadQueue(from: defaults)
     }
 

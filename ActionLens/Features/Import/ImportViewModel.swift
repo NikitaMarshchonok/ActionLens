@@ -1,7 +1,15 @@
 import Foundation
+import os
 import SwiftData
 
+enum ImportOperationResult {
+    case success(title: String)
+    case failure(message: String)
+}
+
 struct ImportViewModel {
+    private static let logger = Logger(subsystem: "ActionLens", category: "Import")
+
     let title: String
     private let importService: any ImportServicing
     private let ocrService: any OCRServicing
@@ -16,7 +24,7 @@ struct ImportViewModel {
         itemClassificationService = environment.itemClassificationService
     }
 
-    func addPhotoImportedItem(photoData: Data, in modelContext: ModelContext) async -> String {
+    func addPhotoImportedItem(photoData: Data, in modelContext: ModelContext) async -> ImportOperationResult {
         let extractedText = await ocrService.extractText(from: photoData)
         let entities = extractedText.map { entityExtractionService.extractEntities(from: $0) } ?? ExtractedEntities()
         let itemType = itemClassificationService.classify(
@@ -33,11 +41,17 @@ struct ImportViewModel {
             itemTypeRaw: itemType.rawValue
         )
         modelContext.insert(item)
-        try? modelContext.save()
-        return item.title
+        do {
+            try modelContext.save()
+            return .success(title: item.title)
+        } catch {
+            modelContext.delete(item)
+            Self.logger.error("Failed to save imported photo item: \(error.localizedDescription, privacy: .public)")
+            return .failure(message: "Could not save imported photo. Please try again.")
+        }
     }
 
-    func addFileImportedItem(from url: URL, in modelContext: ModelContext) -> String {
+    func addFileImportedItem(from url: URL, in modelContext: ModelContext) -> ImportOperationResult {
         let baseName = url.deletingPathExtension().lastPathComponent
         let title = baseName.isEmpty ? "Imported File" : baseName
         let itemType = itemClassificationService.classify(
@@ -54,7 +68,13 @@ struct ImportViewModel {
             itemTypeRaw: itemType.rawValue
         )
         modelContext.insert(item)
-        try? modelContext.save()
-        return item.title
+        do {
+            try modelContext.save()
+            return .success(title: item.title)
+        } catch {
+            modelContext.delete(item)
+            Self.logger.error("Failed to save imported file item: \(error.localizedDescription, privacy: .public)")
+            return .failure(message: "Could not save imported file. Please try again.")
+        }
     }
 }

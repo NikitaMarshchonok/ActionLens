@@ -1,0 +1,88 @@
+{
+  "source": "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Search/SearchView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Search",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 25
+        }
+      },
+      {
+        "comment": "",
+        "key": "Search title",
+        "location": {
+          "startingColumn": 59,
+          "startingLine": 26
+        }
+      },
+      {
+        "comment": "",
+        "key": "Status",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 30
+        }
+      },
+      {
+        "comment": "",
+        "key": "Status",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "Source Type",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 40
+        }
+      },
+      {
+        "comment": "",
+        "key": "Source",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 46
+        }
+      },
+      {
+        "comment": "",
+        "key": "Item Type",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 50
+        }
+      },
+      {
+        "comment": "",
+        "key": "Type",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 56
+        }
+      },
+      {
+        "comment": "",
+        "key": "No inbox items yet.",
+        "location": {
+          "startingColumn": 43,
+          "startingLine": 65
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@ Search",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 63
+        }
+      }
+    ]
+  },
+  "version": 1
+}

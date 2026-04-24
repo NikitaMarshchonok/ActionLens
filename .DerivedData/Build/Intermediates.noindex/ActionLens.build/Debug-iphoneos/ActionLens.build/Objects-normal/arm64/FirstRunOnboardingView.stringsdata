@@ -1,0 +1,32 @@
+{
+  "source": "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/App/FirstRunOnboardingView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Welcome to ActionLens",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 31
+        }
+      },
+      {
+        "comment": "",
+        "key": "Done",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 35
+        }
+      },
+      {
+        "comment": "",
+        "key": "Get Started",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 44
+        }
+      }
+    ]
+  },
+  "version": 1
+}

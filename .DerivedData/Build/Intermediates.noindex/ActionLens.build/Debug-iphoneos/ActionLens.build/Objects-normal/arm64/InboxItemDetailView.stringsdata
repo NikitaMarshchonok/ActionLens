@@ -1,0 +1,184 @@
+{
+  "source": "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Inbox/InboxItemDetailView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Review",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 183
+        }
+      },
+      {
+        "comment": "",
+        "key": "Item Details",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 29
+        }
+      },
+      {
+        "comment": "",
+        "key": "Extracted Text",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "Detected Values",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 63
+        }
+      },
+      {
+        "comment": "",
+        "key": "Contact Insights",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 103
+        }
+      },
+      {
+        "comment": "",
+        "key": "Contact Quick Actions",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 126
+        }
+      },
+      {
+        "comment": "",
+        "key": "Suggested Actions",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 147
+        }
+      },
+      {
+        "comment": "",
+        "key": "Last Action",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 175
+        }
+      },
+      {
+        "comment": "",
+        "key": "Title",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 30
+        }
+      },
+      {
+        "comment": "",
+        "key": "Type",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 35
+        }
+      },
+      {
+        "comment": "",
+        "key": "Source Type",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 38
+        }
+      },
+      {
+        "comment": "",
+        "key": "Status",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 42
+        }
+      },
+      {
+        "comment": "",
+        "key": "Created At",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 45
+        }
+      },
+      {
+        "comment": "",
+        "key": "No extracted text found.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 57
+        }
+      },
+      {
+        "comment": "",
+        "key": "No values detected.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 65
+        }
+      },
+      {
+        "comment": "",
+        "key": "Name",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 105
+        }
+      },
+      {
+        "comment": "",
+        "key": "Company",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 108
+        }
+      },
+      {
+        "comment": "",
+        "key": "Role",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 111
+        }
+      },
+      {
+        "comment": "",
+        "key": "Emails",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 114
+        }
+      },
+      {
+        "comment": "",
+        "key": "Phones",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 117
+        }
+      },
+      {
+        "comment": "",
+        "key": "Links",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 120
+        }
+      },
+      {
+        "comment": "",
+        "key": "No suggested actions available.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 149
+        }
+      }
+    ]
+  },
+  "version": 1
+}

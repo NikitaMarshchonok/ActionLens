@@ -1,4 +1,5 @@
 import Foundation
+import os
 
 enum ExtensionSharedPayloadType: String, Codable {
     case text
@@ -42,6 +43,7 @@ enum ExtensionSharedContainerConfig {
 }
 
 struct ExtensionSharedInboxStore {
+    private static let logger = Logger(subsystem: "ActionLens", category: "ShareExtensionStore")
     private let appGroupIdentifier: String
     private let queueKey: String
 
@@ -70,7 +72,12 @@ struct ExtensionSharedInboxStore {
 
         let directoryURL = containerURL.appendingPathComponent(ExtensionSharedContainerConfig.sharedFilesDirectory)
         if fileManager.fileExists(atPath: directoryURL.path) == false {
-            try? fileManager.createDirectory(at: directoryURL, withIntermediateDirectories: true)
+            do {
+                try fileManager.createDirectory(at: directoryURL, withIntermediateDirectories: true)
+            } catch {
+                Self.logger.error("Failed to create extension shared files directory: \(error.localizedDescription, privacy: .public)")
+                return nil
+            }
         }
 
         return directoryURL
@@ -85,7 +92,10 @@ struct ExtensionSharedInboxStore {
     }
 
     private func saveQueue(_ queue: [ExtensionSharedInboxPayload], to defaults: UserDefaults) {
-        guard let data = try? JSONEncoder().encode(queue) else { return }
+        guard let data = try? JSONEncoder().encode(queue) else {
+            Self.logger.error("Failed to encode extension shared inbox payload queue.")
+            return
+        }
         defaults.set(data, forKey: queueKey)
     }
 }

@@ -66,6 +66,15 @@ final class EventKitActionService: ProductivityActionServicing {
 
     private func requestReminderAccess() async -> Bool {
         if #available(iOS 17.0, *) {
+            let status = EKEventStore.authorizationStatus(for: .reminder)
+            if status == .fullAccess || status == .authorized {
+                return true
+            }
+        } else if EKEventStore.authorizationStatus(for: .reminder) == .authorized {
+            return true
+        }
+
+        if #available(iOS 17.0, *) {
             return (try? await eventStore.requestFullAccessToReminders()) ?? false
         }
 
@@ -78,7 +87,15 @@ final class EventKitActionService: ProductivityActionServicing {
 
     private func requestCalendarAccess() async -> Bool {
         if #available(iOS 17.0, *) {
-            return (try? await eventStore.requestFullAccessToEvents()) ?? false
+            let status = EKEventStore.authorizationStatus(for: .event)
+            if status == .writeOnly || status == .fullAccess || status == .authorized {
+                return true
+            }
+            return (try? await eventStore.requestWriteOnlyAccessToEvents()) ?? false
+        }
+
+        if EKEventStore.authorizationStatus(for: .event) == .authorized {
+            return true
         }
 
         return await withCheckedContinuation { continuation in

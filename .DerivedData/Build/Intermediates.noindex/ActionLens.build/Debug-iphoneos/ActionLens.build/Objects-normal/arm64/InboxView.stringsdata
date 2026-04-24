@@ -1,0 +1,96 @@
+{
+  "source": "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Inbox/InboxView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Inbox",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 66
+        }
+      },
+      {
+        "comment": "",
+        "key": "Search title",
+        "location": {
+          "startingColumn": 59,
+          "startingLine": 67
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 58
+        }
+      },
+      {
+        "comment": "",
+        "key": "Status",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 71
+        }
+      },
+      {
+        "comment": "",
+        "key": "Status",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 77
+        }
+      },
+      {
+        "comment": "",
+        "key": "Source Type",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 81
+        }
+      },
+      {
+        "comment": "",
+        "key": "Source",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 87
+        }
+      },
+      {
+        "comment": "",
+        "key": "Item Type",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 91
+        }
+      },
+      {
+        "comment": "",
+        "key": "Type",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 97
+        }
+      },
+      {
+        "comment": "",
+        "key": "No records yet.",
+        "location": {
+          "startingColumn": 43,
+          "startingLine": 106
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@ Inbox",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 104
+        }
+      }
+    ]
+  },
+  "version": 1
+}

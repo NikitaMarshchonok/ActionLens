@@ -1,0 +1,40 @@
+{
+  "source": "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/App/RootTabView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Inbox",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 12
+        }
+      },
+      {
+        "comment": "",
+        "key": "Import",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 17
+        }
+      },
+      {
+        "comment": "",
+        "key": "Search",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 22
+        }
+      },
+      {
+        "comment": "",
+        "key": "Settings",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 27
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -60,8 +60,12 @@ struct ImportView: View {
                         return
                     }
 
-                    let title = await viewModel.addPhotoImportedItem(photoData: photoData, in: modelContext)
-                    lastImportMessage = "Added \"\(title)\" from Photos."
+                    switch await viewModel.addPhotoImportedItem(photoData: photoData, in: modelContext) {
+                    case .success(let title):
+                        lastImportMessage = "Added \"\(title)\" from Photos."
+                    case .failure(let message):
+                        lastImportMessage = message
+                    }
                     selectedPhotoItem = nil
                     isImportingPhoto = false
                 }
@@ -74,8 +78,12 @@ struct ImportView: View {
                 switch result {
                 case .success(let urls):
                     guard let url = urls.first else { return }
-                    let title = viewModel.addFileImportedItem(from: url, in: modelContext)
-                    lastImportMessage = "Added \"\(title)\" from Files."
+                    switch viewModel.addFileImportedItem(from: url, in: modelContext) {
+                    case .success(let title):
+                        lastImportMessage = "Added \"\(title)\" from Files."
+                    case .failure(let message):
+                        lastImportMessage = message
+                    }
                 case .failure:
                     lastImportMessage = "Import canceled or failed."
                 }

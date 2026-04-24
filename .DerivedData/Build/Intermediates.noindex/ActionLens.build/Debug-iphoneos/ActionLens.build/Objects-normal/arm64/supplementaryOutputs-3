@@ -1,0 +1,23 @@
+{
+  "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/InboxUrgencyGrouping.swift" : {
+    "const-values" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/InboxUrgencyGrouping.swiftconstvalues",
+    "dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/InboxUrgencyGrouping.d",
+    "diagnostics" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/InboxUrgencyGrouping.dia",
+    "object" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/InboxUrgencyGrouping.o",
+    "swift-dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/InboxUrgencyGrouping.swiftdeps"
+  },
+  "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/OnboardingState.swift" : {
+    "const-values" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/OnboardingState.swiftconstvalues",
+    "dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/OnboardingState.d",
+    "diagnostics" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/OnboardingState.dia",
+    "object" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/OnboardingState.o",
+    "swift-dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/OnboardingState.swiftdeps"
+  },
+  "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/SharedInboxPayload.swift" : {
+    "const-values" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/SharedInboxPayload.swiftconstvalues",
+    "dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/SharedInboxPayload.d",
+    "diagnostics" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/SharedInboxPayload.dia",
+    "object" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/SharedInboxPayload.o",
+    "swift-dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/SharedInboxPayload.swiftdeps"
+  }
+}

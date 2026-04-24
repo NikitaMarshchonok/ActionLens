@@ -1,0 +1,23 @@
+{
+  "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/InboxSeedService.swift" : {
+    "const-values" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/InboxSeedService.swiftconstvalues",
+    "dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/InboxSeedService.d",
+    "diagnostics" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/InboxSeedService.dia",
+    "object" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/InboxSeedService.o",
+    "swift-dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/InboxSeedService.swiftdeps"
+  },
+  "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/ItemTypeBackfillService.swift" : {
+    "const-values" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ItemTypeBackfillService.swiftconstvalues",
+    "dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ItemTypeBackfillService.d",
+    "diagnostics" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ItemTypeBackfillService.dia",
+    "object" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ItemTypeBackfillService.o",
+    "swift-dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ItemTypeBackfillService.swiftdeps"
+  },
+  "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/LocalEntityExtractionService.swift" : {
+    "const-values" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/LocalEntityExtractionService.swiftconstvalues",
+    "dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/LocalEntityExtractionService.d",
+    "diagnostics" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/LocalEntityExtractionService.dia",
+    "object" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/LocalEntityExtractionService.o",
+    "swift-dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/LocalEntityExtractionService.swiftdeps"
+  }
+}

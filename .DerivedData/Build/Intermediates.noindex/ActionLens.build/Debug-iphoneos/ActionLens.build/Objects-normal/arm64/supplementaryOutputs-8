@@ -1,0 +1,23 @@
+{
+  "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/AppShellService.swift" : {
+    "const-values" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/AppShellService.swiftconstvalues",
+    "dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/AppShellService.d",
+    "diagnostics" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/AppShellService.dia",
+    "object" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/AppShellService.o",
+    "swift-dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/AppShellService.swiftdeps"
+  },
+  "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/ContactsActionService.swift" : {
+    "const-values" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ContactsActionService.swiftconstvalues",
+    "dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ContactsActionService.d",
+    "diagnostics" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ContactsActionService.dia",
+    "object" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ContactsActionService.o",
+    "swift-dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ContactsActionService.swiftdeps"
+  },
+  "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/DemoShowcaseService.swift" : {
+    "const-values" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/DemoShowcaseService.swiftconstvalues",
+    "dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/DemoShowcaseService.d",
+    "diagnostics" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/DemoShowcaseService.dia",
+    "object" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/DemoShowcaseService.o",
+    "swift-dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/DemoShowcaseService.swiftdeps"
+  }
+}

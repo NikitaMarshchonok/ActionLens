@@ -1,0 +1,72 @@
+{
+  "source": "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Import/ImportView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Import",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 50
+        }
+      },
+      {
+        "comment": "",
+        "key": "Import Sources",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 18
+        }
+      },
+      {
+        "comment": "",
+        "key": "Notes",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 30
+        }
+      },
+      {
+        "comment": "",
+        "key": "Last Import",
+        "location": {
+          "startingColumn": 29,
+          "startingLine": 43
+        }
+      },
+      {
+        "comment": "",
+        "key": "Import Image from Photos",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 20
+        }
+      },
+      {
+        "comment": "",
+        "key": "Import File",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 26
+        }
+      },
+      {
+        "comment": "",
+        "key": "Imported items are added to Inbox with placeholder metadata.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 31
+        }
+      },
+      {
+        "comment": "",
+        "key": "Extracting text from selected image...",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 38
+        }
+      }
+    ]
+  },
+  "version": 1
+}

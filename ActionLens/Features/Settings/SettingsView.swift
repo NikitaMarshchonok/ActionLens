@@ -3,6 +3,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.modelContext) private var modelContext
+    @AppStorage(OnboardingState.shouldPresentKey) private var shouldPresentOnboarding = false
     @State private var debugReportText: String?
     @State private var demoReportText: String?
 
@@ -14,6 +15,10 @@ struct SettingsView: View {
                 Section("General") {
                     Text("\(viewModel.title) Settings")
                         .foregroundStyle(.secondary)
+
+                    Button("Show Onboarding Again") {
+                        shouldPresentOnboarding = true
+                    }
                 }
 
 #if DEBUG

@@ -1,0 +1,74 @@
+{
+  "buildCommand" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildOnly"
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "b05e5b87a3091cfbf5075662917f9c8ece94174e1e2ffc3375ced4fbfdeaa009"
+    }
+  ],
+  "containerPath" : "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens.xcodeproj",
+  "continueBuildingAfterErrors" : false,
+  "dependencyScope" : "workspace",
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "undefined_arch",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : true,
+      "hostTargetedPlatform" : null,
+      "platform" : "iphoneos",
+      "sdk" : "iphoneos26.4",
+      "sdkVariant" : "iphoneos",
+      "supportedArchitectures" : [
+        "armv4t",
+        "armv5",
+        "armv6",
+        "armv7",
+        "armv7f",
+        "armv7s",
+        "armv7k",
+        "arm64",
+        "arm64e"
+      ],
+      "targetArchitecture" : "undefined_arch"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Products",
+      "derivedDataPath" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData",
+      "indexDataStoreFolderPath" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Index.noindex/PrecompiledHeaders",
+      "pchPath" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "commandLine" : {
+        "table" : {
+          "CODE_SIGNING_ALLOWED" : "NO",
+          "CODE_SIGNING_REQUIRED" : "NO"
+        }
+      },
+      "synthesized" : {
+        "table" : {
+          "ACTION" : "build",
+          "CLANG_COVERAGE_MAPPING" : "YES",
+          "CLANG_PROFILE_DATA_DIRECTORY" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedData/Build/ProfileData",
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "YES",
+          "ONLY_ACTIVE_ARCH" : "YES"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

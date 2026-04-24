@@ -6,10 +6,16 @@ struct SharedInboxIngestionReport: Codable {
     let processedCount: Int
     let createdCount: Int
     let skippedCount: Int
+    let failedCount: Int
+    let errorMessage: String?
     let createdAt: Date
 
     var summaryText: String {
-        "Processed: \(processedCount), Created: \(createdCount), Skipped: \(skippedCount)"
+        var text = "Processed: \(processedCount), Created: \(createdCount), Skipped: \(skippedCount), Failed: \(failedCount)"
+        if let errorMessage {
+            text += " (\(errorMessage))"
+        }
+        return text
     }
 }
 
@@ -39,12 +45,14 @@ struct SharedInboxIngestionService {
     @discardableResult
     @MainActor
     func ingestPendingPayloads(into modelContext: ModelContext) -> SharedInboxIngestionReport {
-        let payloads = sharedInboxStore.dequeueAll()
+        let payloads = sharedInboxStore.pendingPayloads()
         guard payloads.isEmpty == false else {
             let report = SharedInboxIngestionReport(
                 processedCount: 0,
                 createdCount: 0,
                 skippedCount: 0,
+                failedCount: 0,
+                errorMessage: nil,
                 createdAt: .now
             )
             debugStateStore.saveLastReport(report)
@@ -54,10 +62,12 @@ struct SharedInboxIngestionService {
         var processedIDs = loadProcessedPayloadIDs()
         var createdCount = 0
         var skippedCount = 0
+        var consumedPayloadIDs = Set<UUID>()
 
         for payload in payloads {
             if processedIDs.contains(payload.id.uuidString) {
                 skippedCount += 1
+                consumedPayloadIDs.insert(payload.id)
                 continue
             }
 
@@ -65,6 +75,7 @@ struct SharedInboxIngestionService {
             guard descriptor.isValid else {
                 skippedCount += 1
                 processedIDs.insert(payload.id.uuidString)
+                consumedPayloadIDs.insert(payload.id)
                 continue
             }
 
@@ -88,9 +99,26 @@ struct SharedInboxIngestionService {
             modelContext.insert(item)
             createdCount += 1
             processedIDs.insert(payload.id.uuidString)
+            consumedPayloadIDs.insert(payload.id)
         }
 
-        try? modelContext.save()
+        do {
+            try modelContext.save()
+            sharedInboxStore.removePayloads(withIDs: consumedPayloadIDs)
+        } catch {
+            modelContext.rollback()
+            let report = SharedInboxIngestionReport(
+                processedCount: payloads.count,
+                createdCount: 0,
+                skippedCount: 0,
+                failedCount: payloads.count,
+                errorMessage: "Could not save imported shared items.",
+                createdAt: .now
+            )
+            debugStateStore.saveLastReport(report)
+            Self.logger.error("Share ingestion save failed: \(error.localizedDescription, privacy: .public)")
+            return report
+        }
 
         saveProcessedPayloadIDs(processedIDs)
 
@@ -99,6 +127,8 @@ struct SharedInboxIngestionService {
             createdCount: createdCount,
             skippedCount: skippedCount
                 + max(0, payloads.count - createdCount - skippedCount),
+            failedCount: 0,
+            errorMessage: nil,
             createdAt: .now
         )
         debugStateStore.saveLastReport(report)

@@ -1,0 +1,112 @@
+{
+  "source": "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Settings/SettingsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Settings",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 71
+        }
+      },
+      {
+        "comment": "",
+        "key": "General",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 15
+        }
+      },
+      {
+        "comment": "",
+        "key": "Developer",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 25
+        }
+      },
+      {
+        "comment": "",
+        "key": "Share Ingestion",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 42
+        }
+      },
+      {
+        "comment": "",
+        "key": "Demo Showcase",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 58
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@ Settings",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 16
+        }
+      },
+      {
+        "comment": "",
+        "key": "Show Onboarding Again",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 19
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ingest Shared Queue Now",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 26
+        }
+      },
+      {
+        "comment": "",
+        "key": "Seed Demo Showcase Data",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 31
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear Demo Showcase Data",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "No ingestion report yet.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 52
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@\n%@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 48
+        }
+      },
+      {
+        "comment": "",
+        "key": "Use Developer actions to seed or clear demo items.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 64
+        }
+      }
+    ]
+  },
+  "version": 1
+}

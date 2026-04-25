@@ -103,7 +103,7 @@ struct InboxView: View {
                     ContentUnavailableView(
                         "\(viewModel.title) Inbox",
                         systemImage: "tray",
-                        description: Text("No records yet.")
+                        description: Text("No items yet. Import from Photos/Files or share from another app.")
                     )
                 } else if groupedSections.isEmpty {
                     ContentUnavailableView.search(text: filter.searchText)

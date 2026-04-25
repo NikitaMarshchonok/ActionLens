@@ -8,9 +8,11 @@ struct SearchView: View {
     private let viewModel = SearchViewModel()
 
     var body: some View {
+        let filteredItems = viewModel.filteredItems(from: items, using: filter)
+
         NavigationStack {
             List {
-                ForEach(viewModel.filteredItems(from: items, using: filter)) { item in
+                ForEach(filteredItems) { item in
                     VStack(alignment: .leading, spacing: 4) {
                         Text(item.title)
                             .font(.headline)
@@ -62,10 +64,18 @@ struct SearchView: View {
                     ContentUnavailableView(
                         "\(viewModel.title) Search",
                         systemImage: "magnifyingglass",
-                        description: Text("No inbox items yet.")
+                        description: Text("No items to search yet. Import content first.")
                     )
-                } else if viewModel.filteredItems(from: items, using: filter).isEmpty {
-                    ContentUnavailableView.search(text: filter.searchText)
+                } else if filteredItems.isEmpty {
+                    if filter.searchText.isEmpty {
+                        ContentUnavailableView(
+                            "No Matching Items",
+                            systemImage: "line.3.horizontal.decrease.circle",
+                            description: Text("Try clearing filters to see more results.")
+                        )
+                    } else {
+                        ContentUnavailableView.search(text: filter.searchText)
+                    }
                 }
             }
         }

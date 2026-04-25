@@ -1,8 +1,10 @@
 import Foundation
+import os
 import SwiftData
 import UIKit
 
 struct InboxItemDetailViewModel {
+    private static let logger = Logger(subsystem: "ActionLens", category: "InboxItemDetail")
     enum ContactQuickAction: Hashable {
         case call(String)
         case email(String)
@@ -160,12 +162,24 @@ struct InboxItemDetailViewModel {
             return await contactActionService.createContact(from: draft)
         case .saveForLater:
             item.status = "saved_for_later"
-            try? modelContext.save()
-            return "Item saved for later."
+            do {
+                try modelContext.save()
+                return "Item saved for later."
+            } catch {
+                modelContext.rollback()
+                Self.logger.error("Failed to save 'saved_for_later' status: \(error.localizedDescription, privacy: .public)")
+                return "Could not save changes. Please try again."
+            }
         case .markAsReviewed:
             item.status = "reviewed"
-            try? modelContext.save()
-            return "Item marked as reviewed."
+            do {
+                try modelContext.save()
+                return "Item marked as reviewed."
+            } catch {
+                modelContext.rollback()
+                Self.logger.error("Failed to save 'reviewed' status: \(error.localizedDescription, privacy: .public)")
+                return "Could not save changes. Please try again."
+            }
         case .openLink(let value):
             guard let url = URL(string: value) else {
                 return "Invalid URL."

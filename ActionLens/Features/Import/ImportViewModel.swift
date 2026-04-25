@@ -4,6 +4,7 @@ import SwiftData
 
 enum ImportOperationResult {
     case success(title: String)
+    case successNoText(title: String)
     case failure(message: String)
 }
 
@@ -43,6 +44,9 @@ struct ImportViewModel {
         modelContext.insert(item)
         do {
             try modelContext.save()
+            if extractedText?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty != false {
+                return .successNoText(title: item.title)
+            }
             return .success(title: item.title)
         } catch {
             modelContext.delete(item)

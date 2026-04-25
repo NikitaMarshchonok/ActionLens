@@ -173,9 +173,9 @@ struct InboxItemDetailView: View {
 
             if let lastActionMessage {
                 Section("Last Action") {
-                    Text(lastActionMessage)
+                    Label(lastActionMessage, systemImage: lastActionIcon(for: lastActionMessage))
                         .font(.subheadline)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(lastActionTint(for: lastActionMessage))
                 }
             }
         }
@@ -204,6 +204,28 @@ struct InboxItemDetailView: View {
             || entities.emails.isEmpty == false
             || entities.phoneNumbers.isEmpty == false
             || entities.urls.isEmpty == false
+    }
+
+    private func lastActionTint(for message: String) -> Color {
+        let normalized = message.lowercased()
+        if normalized.contains("could not")
+            || normalized.contains("denied")
+            || normalized.contains("invalid")
+            || normalized.contains("failed") {
+            return .red
+        }
+        return .secondary
+    }
+
+    private func lastActionIcon(for message: String) -> String {
+        let normalized = message.lowercased()
+        if normalized.contains("could not")
+            || normalized.contains("denied")
+            || normalized.contains("invalid")
+            || normalized.contains("failed") {
+            return "exclamationmark.triangle"
+        }
+        return "checkmark.circle"
     }
 }
 

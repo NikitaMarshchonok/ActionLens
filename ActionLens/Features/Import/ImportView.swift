@@ -17,20 +17,22 @@ struct ImportView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Import Sources") {
+                Section("Quick Import") {
                     PhotosPicker(selection: $selectedPhotoItem, matching: .images) {
-                        Label("Import Image from Photos", systemImage: "photo.on.rectangle")
+                        Label("From Photos", systemImage: "photo.on.rectangle")
                     }
 
                     Button {
                         isShowingFileImporter = true
                     } label: {
-                        Label("Import File", systemImage: "doc.badge.plus")
+                        Label("From Files", systemImage: "doc.badge.plus")
                     }
+                } footer: {
+                    Text("Import one item at a time. Added items appear in Inbox.")
                 }
 
-                Section("Notes") {
-                    Text("Imported items are added to Inbox and analyzed for text/actions when available.")
+                Section("What happens next") {
+                    Text("ActionLens analyzes imported content and suggests actions when possible.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
@@ -41,11 +43,19 @@ struct ImportView: View {
                     }
                 }
 
-                if let lastImportMessage {
-                    Section("Last Import") {
-                        Text(lastImportMessage)
+                if lastImportMessage == nil, isImportingPhoto == false {
+                    Section("Status") {
+                        Label("Ready to import.", systemImage: "checkmark.circle")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
+                    }
+                }
+
+                if let lastImportMessage {
+                    Section("Last Import") {
+                        Label(lastImportMessage, systemImage: statusIcon(for: lastImportMessage))
+                            .font(.subheadline)
+                            .foregroundStyle(statusColor(for: lastImportMessage))
                     }
                 }
             }
@@ -82,6 +92,8 @@ struct ImportView: View {
                     switch await viewModel.addPhotoImportedItem(photoData: photoData, in: modelContext) {
                     case .success(let title):
                         lastImportMessage = "Added \"\(title)\" from Photos."
+                    case .successNoText(let title):
+                        lastImportMessage = "Added \"\(title)\" from Photos. No text was detected."
                     case .failure(let message):
                         lastImportMessage = message
                     }
@@ -96,17 +108,44 @@ struct ImportView: View {
             ) { result in
                 switch result {
                 case .success(let urls):
-                    guard let url = urls.first else { return }
+                    guard let url = urls.first else {
+                        lastImportMessage = "No file selected."
+                        return
+                    }
                     switch viewModel.addFileImportedItem(from: url, in: modelContext) {
                     case .success(let title):
                         lastImportMessage = "Added \"\(title)\" from Files."
+                    case .successNoText:
+                        lastImportMessage = "Added file from Files."
                     case .failure(let message):
                         lastImportMessage = message
                     }
                 case .failure:
-                    lastImportMessage = "Import canceled or failed."
+                    lastImportMessage = "Import canceled."
                 }
             }
         }
+    }
+
+    private func statusIcon(for message: String) -> String {
+        let normalized = message.lowercased()
+        if normalized.contains("failed")
+            || normalized.contains("could not")
+            || normalized.contains("canceled")
+            || normalized.contains("no file selected") {
+            return "exclamationmark.triangle"
+        }
+        return "checkmark.circle"
+    }
+
+    private func statusColor(for message: String) -> Color {
+        let normalized = message.lowercased()
+        if normalized.contains("failed")
+            || normalized.contains("could not")
+            || normalized.contains("canceled")
+            || normalized.contains("no file selected") {
+            return .red
+        }
+        return .secondary
     }
 }

@@ -13,24 +13,31 @@ struct SettingsView: View {
         NavigationStack {
             List {
                 Section("General") {
-                    Text("\(viewModel.title) Settings")
+                    Text("Manage onboarding and app status.")
+                        .font(.subheadline)
                         .foregroundStyle(.secondary)
 
-                    Button("Show Onboarding Again") {
+                    Button {
                         shouldPresentOnboarding = true
+                    } label: {
+                        Label("Show Onboarding Again", systemImage: "sparkles")
                     }
                 }
 
                 if let ingestionFailureMessage = viewModel.lastIngestionFailureMessage() {
                     Section("Import Status") {
-                        Text("Some shared imports could not be saved. \(ingestionFailureMessage)")
+                        Label("Some shared imports could not be saved.", systemImage: "exclamationmark.triangle")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(.red)
+
+                        Text(ingestionFailureMessage)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
                 }
 
 #if DEBUG
-                Section("Developer") {
+                Section("Developer (Debug)") {
                     Button("Ingest Shared Queue Now") {
                         let report = viewModel.ingestSharedQueue(into: modelContext)
                         debugReportText = report.summaryText
@@ -45,6 +52,8 @@ struct SettingsView: View {
                         let report = viewModel.clearDemoData(into: modelContext)
                         demoReportText = report.message
                     }
+                } footer: {
+                    Text("Debug tools are for development builds only.")
                 }
 
                 Section("Share Ingestion") {
@@ -76,6 +85,7 @@ struct SettingsView: View {
                 }
 #endif
             }
+            .listSectionSpacing(20)
             .navigationTitle("Settings")
         }
     }

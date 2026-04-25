@@ -64,7 +64,7 @@ struct InboxView: View {
                 }
             }
             .navigationTitle("Inbox")
-            .searchable(text: $filter.searchText, prompt: "Search title")
+            .searchable(text: $filter.searchText, prompt: "Search inbox")
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Menu {
@@ -101,9 +101,9 @@ struct InboxView: View {
             .overlay {
                 if items.isEmpty {
                     ContentUnavailableView(
-                        "\(viewModel.title) Inbox",
+                        "Your Inbox Is Empty",
                         systemImage: "tray",
-                        description: Text("No items yet. Import from Photos/Files or share from another app.")
+                        description: Text("Import from Photos or Files, or share from another app to get started.")
                     )
                 } else if groupedSections.isEmpty {
                     ContentUnavailableView.search(text: filter.searchText)

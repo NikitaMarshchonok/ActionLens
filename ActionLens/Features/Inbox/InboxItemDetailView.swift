@@ -54,7 +54,7 @@ struct InboxItemDetailView: View {
                         .font(.body)
                         .textSelection(.enabled)
                 } else {
-                    Text("No extracted text found.")
+                    Text("No text was found for this item.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
@@ -62,7 +62,7 @@ struct InboxItemDetailView: View {
 
             Section("Detected Values") {
                 if detectedEntities.isEmpty {
-                    Text("No values detected.")
+                    Text("No details were detected yet.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 } else {
@@ -146,7 +146,7 @@ struct InboxItemDetailView: View {
 
             Section("Suggested Actions") {
                 if suggestedActions.isEmpty {
-                    Text("No suggested actions available.")
+                    Text("No suggested actions are available for this item yet.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 } else {

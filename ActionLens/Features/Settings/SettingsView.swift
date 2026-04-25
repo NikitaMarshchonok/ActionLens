@@ -13,20 +13,20 @@ struct SettingsView: View {
         NavigationStack {
             List {
                 Section("General") {
-                    Text("Manage onboarding and app status.")
+                    Text("Need a quick refresher? Open onboarding anytime.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
 
                     Button {
                         shouldPresentOnboarding = true
                     } label: {
-                        Label("Show Onboarding Again", systemImage: "sparkles")
+                        Label("View Onboarding", systemImage: "sparkles")
                     }
                 }
 
                 if let ingestionFailureMessage = viewModel.lastIngestionFailureMessage() {
                     Section("Import Status") {
-                        Label("Some shared imports could not be saved.", systemImage: "exclamationmark.triangle")
+                        Label("Some shared items couldn't be saved.", systemImage: "exclamationmark.triangle")
                             .font(.subheadline.weight(.semibold))
                             .foregroundStyle(.red)
 

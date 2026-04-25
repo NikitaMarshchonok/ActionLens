@@ -28,11 +28,11 @@ struct ImportView: View {
                         Label("From Files", systemImage: "doc.badge.plus")
                     }
                 } footer: {
-                    Text("Import one item at a time. Added items appear in Inbox.")
+                    Text("Import one item at a time. New items appear in Inbox.")
                 }
 
                 Section("What happens next") {
-                    Text("ActionLens analyzes imported content and suggests actions when possible.")
+                    Text("Imported content is analyzed and action suggestions appear when available.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
@@ -45,7 +45,7 @@ struct ImportView: View {
 
                 if lastImportMessage == nil, isImportingPhoto == false {
                     Section("Status") {
-                        Label("Ready to import.", systemImage: "checkmark.circle")
+                        Label("Ready to import", systemImage: "checkmark.circle")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }

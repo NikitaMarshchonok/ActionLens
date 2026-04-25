@@ -10,21 +10,21 @@ struct FirstRunOnboardingView: View {
                     title: "Import",
                     subtitle: "Bring in photos, files, or shared content.",
                     systemImage: "square.and.arrow.down",
-                    detail: "Use Import tab or Share Extension from other apps."
+                    detail: "Use Import to add content, or use Share from other apps."
                 )
 
                 OnboardingStepView(
                     title: "Review",
-                    subtitle: "Check extracted text and detected values.",
+                    subtitle: "Review extracted text and detected details.",
                     systemImage: "doc.text.magnifyingglass",
-                    detail: "Open any item from Inbox to see OCR text and structured details."
+                    detail: "Open any Inbox item to view details and available actions."
                 )
 
                 OnboardingStepView(
                     title: "Act",
-                    subtitle: "Use suggested actions to complete tasks quickly.",
+                    subtitle: "Use suggested actions to finish tasks faster.",
                     systemImage: "checklist",
-                    detail: "Call, email, open links, create reminders/events, or create contacts."
+                    detail: "Call, email, open links, create reminders or events, and create contacts."
                 )
             }
             .tabViewStyle(.page(indexDisplayMode: .automatic))

@@ -25,7 +25,7 @@ struct SearchView: View {
                 }
             }
             .navigationTitle("Search")
-            .searchable(text: $filter.searchText, prompt: "Search title")
+            .searchable(text: $filter.searchText, prompt: "Search inbox")
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Menu {
@@ -62,14 +62,14 @@ struct SearchView: View {
             .overlay {
                 if items.isEmpty {
                     ContentUnavailableView(
-                        "\(viewModel.title) Search",
+                        "Nothing to Search Yet",
                         systemImage: "magnifyingglass",
-                        description: Text("No items to search yet. Import content first.")
+                        description: Text("Import or share an item first, then search here.")
                     )
                 } else if filteredItems.isEmpty {
                     if filter.searchText.isEmpty {
                         ContentUnavailableView(
-                            "No Matching Items",
+                            "No Results With Current Filters",
                             systemImage: "line.3.horizontal.decrease.circle",
                             description: Text("Try clearing filters to see more results.")
                         )

@@ -14,7 +14,7 @@ final class EventKitActionService: ProductivityActionServicing {
     func createReminder(title: String, dueDate: Date?) async -> String {
         let hasAccess = await requestReminderAccess()
         guard hasAccess else {
-            return "Reminder access denied. Enable access in Settings."
+            return "Reminder access is turned off. Turn it on in Settings."
         }
 
         let reminder = EKReminder(eventStore: eventStore)
@@ -33,14 +33,14 @@ final class EventKitActionService: ProductivityActionServicing {
             return dueDate == nil ? "Reminder created (no due date)." : "Reminder created."
         } catch {
             Self.logger.error("Failed to save reminder: \(error.localizedDescription, privacy: .public)")
-            return "Could not create reminder."
+            return "Couldn't create reminder. Please try again."
         }
     }
 
     func createCalendarEvent(title: String, startDate: Date?) async -> String {
         let hasAccess = await requestCalendarAccess()
         guard hasAccess else {
-            return "Calendar access denied. Enable access in Settings."
+            return "Calendar access is turned off. Turn it on in Settings."
         }
 
         guard let calendar = eventStore.defaultCalendarForNewEvents else {
@@ -64,7 +64,7 @@ final class EventKitActionService: ProductivityActionServicing {
             return "Calendar event created."
         } catch {
             Self.logger.error("Failed to save calendar event: \(error.localizedDescription, privacy: .public)")
-            return "Could not create calendar event."
+            return "Couldn't create calendar event. Please try again."
         }
     }
 

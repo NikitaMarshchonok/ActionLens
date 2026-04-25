@@ -38,12 +38,12 @@ final class ContactsActionService: ContactActionServicing {
 
     func createContact(from draft: ContactDraft) async -> String {
         guard draft.hasAnyValue else {
-            return "Not enough contact data to create contact."
+            return "There isn't enough contact info to create a contact."
         }
 
         let hasAccess = await requestContactAccess()
         guard hasAccess else {
-            return "Contacts access denied. Enable access in Settings."
+            return "Contacts access is turned off. Turn it on in Settings."
         }
 
         let contact = CNMutableContact()
@@ -81,7 +81,7 @@ final class ContactsActionService: ContactActionServicing {
             return "Contact created."
         } catch {
             Self.logger.error("Failed to create contact: \(error.localizedDescription, privacy: .public)")
-            return "Could not create contact."
+            return "Couldn't create contact. Please try again."
         }
     }
 

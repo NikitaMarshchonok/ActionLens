@@ -22,6 +22,8 @@ struct SearchView: View {
                             .foregroundStyle(.secondary)
                     }
                     .padding(.vertical, 4)
+                    .contentShape(Rectangle())
+                    .accessibilityElement(children: .combine)
                 }
             }
             .navigationTitle("Search")

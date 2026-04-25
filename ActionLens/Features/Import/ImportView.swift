@@ -21,12 +21,14 @@ struct ImportView: View {
                     PhotosPicker(selection: $selectedPhotoItem, matching: .images) {
                         Label("From Photos", systemImage: "photo.on.rectangle")
                     }
+                    .accessibilityHint("Opens Photos to import an image.")
 
                     Button {
                         isShowingFileImporter = true
                     } label: {
                         Label("From Files", systemImage: "doc.badge.plus")
                     }
+                    .accessibilityHint("Opens Files to import a document or image.")
                 } footer: {
                     Text("Import one item at a time. New items appear in Inbox.")
                 }
@@ -56,6 +58,7 @@ struct ImportView: View {
                         Label(lastImportMessage, systemImage: statusIcon(for: lastImportMessage))
                             .font(.subheadline)
                             .foregroundStyle(statusColor(for: lastImportMessage))
+                            .textSelection(.enabled)
                     }
                 }
             }
@@ -146,6 +149,6 @@ struct ImportView: View {
             || normalized.contains("no file selected") {
             return .red
         }
-        return .secondary
+        return .primary
     }
 }

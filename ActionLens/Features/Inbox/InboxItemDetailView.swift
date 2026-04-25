@@ -140,6 +140,7 @@ struct InboxItemDetailView: View {
                             Label(action.title, systemImage: action.systemImage)
                                 .font(.body.weight(.medium))
                         }
+                        .accessibilityHint("Performs this action for the current item.")
                     }
                 }
             }
@@ -167,6 +168,7 @@ struct InboxItemDetailView: View {
                             Label(action.title, systemImage: action.systemImage)
                                 .font(.body.weight(.medium))
                         }
+                        .accessibilityHint("Performs this suggested action.")
                     }
                 }
             }
@@ -176,6 +178,7 @@ struct InboxItemDetailView: View {
                     Label(lastActionMessage, systemImage: lastActionIcon(for: lastActionMessage))
                         .font(.subheadline)
                         .foregroundStyle(lastActionTint(for: lastActionMessage))
+                        .textSelection(.enabled)
                 }
             }
         }

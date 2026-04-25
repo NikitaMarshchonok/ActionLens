@@ -47,7 +47,11 @@ struct InboxView: View {
                                     .foregroundStyle(.secondary)
                                 }
                                 .padding(.vertical, 6)
+                                .contentShape(Rectangle())
                             }
+                            .accessibilityElement(children: .ignore)
+                            .accessibilityLabel("\(item.title), \(viewModel.itemTypeText(for: item)), \(viewModel.statusText(for: item))")
+                            .accessibilityHint("Opens item details.")
                         }
                     } header: {
                         HStack {
@@ -60,6 +64,7 @@ struct InboxView: View {
                                 .foregroundStyle(.tertiary)
                         }
                         .textCase(.uppercase)
+                        .accessibilityAddTraits(.isHeader)
                     }
                 }
             }
@@ -189,11 +194,15 @@ private struct MetadataPill: View {
 
     var body: some View {
         Label(text, systemImage: systemImage)
-            .font(.caption2.weight(.semibold))
+            .font(.caption.weight(.semibold))
             .foregroundStyle(tint)
             .padding(.horizontal, 9)
             .padding(.vertical, 4)
             .background(tint.opacity(0.12))
             .clipShape(Capsule())
+            .lineLimit(1)
+            .minimumScaleFactor(0.8)
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(text)
     }
 }

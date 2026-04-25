@@ -22,6 +22,7 @@ struct SettingsView: View {
                     } label: {
                         Label("View Onboarding", systemImage: "sparkles")
                     }
+                    .accessibilityHint("Opens the onboarding walkthrough.")
                 }
 
                 if let ingestionFailureMessage = viewModel.lastIngestionFailureMessage() {
@@ -33,6 +34,7 @@ struct SettingsView: View {
                         Text(ingestionFailureMessage)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
+                            .textSelection(.enabled)
                     }
                 }
 

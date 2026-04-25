@@ -70,7 +70,7 @@ final class EventKitActionService: ProductivityActionServicing {
 
     private func requestReminderAccess() async -> Bool {
         let status = EKEventStore.authorizationStatus(for: .reminder)
-        if status == .fullAccess || status == .authorized {
+        if status == .fullAccess {
             return true
         }
 
@@ -84,7 +84,7 @@ final class EventKitActionService: ProductivityActionServicing {
 
     private func requestCalendarAccess() async -> Bool {
         let status = EKEventStore.authorizationStatus(for: .event)
-        if status == .writeOnly || status == .fullAccess || status == .authorized {
+        if status == .writeOnly || status == .fullAccess {
             return true
         }
 

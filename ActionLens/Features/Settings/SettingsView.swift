@@ -13,7 +13,7 @@ struct SettingsView: View {
         NavigationStack {
             List {
                 Section("General") {
-                    Text("Need a quick refresher? Open onboarding anytime.")
+                    Text("Need a quick refresher? Open the ActionLens onboarding anytime.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
 
@@ -23,6 +23,12 @@ struct SettingsView: View {
                         Label("View Onboarding", systemImage: "sparkles")
                     }
                     .accessibilityHint("Opens the onboarding walkthrough.")
+                }
+
+                Section("About") {
+                    Text("ActionLens helps you import, review, and act on important details in one place.")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
                 }
 
                 if let ingestionFailureMessage = viewModel.lastIngestionFailureMessage() {

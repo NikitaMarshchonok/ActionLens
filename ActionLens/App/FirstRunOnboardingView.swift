@@ -10,7 +10,7 @@ struct FirstRunOnboardingView: View {
                     title: "Import",
                     subtitle: "Bring in photos, files, or shared content.",
                     systemImage: "square.and.arrow.down",
-                    detail: "Use Import to add content, or use Share from other apps."
+                    detail: "Use Import to add content, or use Share from other apps into ActionLens."
                 )
 
                 OnboardingStepView(

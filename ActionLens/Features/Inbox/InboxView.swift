@@ -106,7 +106,7 @@ struct InboxView: View {
             .overlay {
                 if items.isEmpty {
                     ContentUnavailableView(
-                        "Your Inbox Is Empty",
+                        "Your ActionLens Inbox Is Empty",
                         systemImage: "tray",
                         description: Text("Import from Photos or Files, or share from another app to get started.")
                     )

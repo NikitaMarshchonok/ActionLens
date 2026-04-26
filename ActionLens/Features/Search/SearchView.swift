@@ -64,7 +64,7 @@ struct SearchView: View {
             .overlay {
                 if items.isEmpty {
                     ContentUnavailableView(
-                        "Nothing to Search Yet",
+                        "Nothing to Search in ActionLens Yet",
                         systemImage: "magnifyingglass",
                         description: Text("Import or share an item first, then search here.")
                     )

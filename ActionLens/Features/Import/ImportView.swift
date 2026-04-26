@@ -33,8 +33,8 @@ struct ImportView: View {
                     Text("Import one item at a time. New items appear in Inbox.")
                 }
 
-                Section("What happens next") {
-                    Text("Imported content is analyzed and action suggestions appear when available.")
+                Section("What Happens Next") {
+                    Text("ActionLens analyzes imported content and surfaces actions when available.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }

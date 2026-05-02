@@ -1,0 +1,960 @@
+2026-05-02 12:48:16.247 xcodebuild[88258:5459764]  DVTFilePathFSEvents: Failed to start fs event stream.
+2026-05-02 12:48:16.925 xcodebuild[88258:5459765] CoreSimulatorService connection became invalid.  Simulator services will no longer be available.
+2026-05-02 12:48:16.925 xcodebuild[88258:5459831] Logging connecton invalid: <OS_xpc_error: <dictionary: 0x1f00180e0> { count = 1, transaction: 0, voucher = 0x0, contents =
+	"XPCErrorDescription" => <string: 0x1f0018220> { string cache = 0x0, length = 18, contents = "Connection invalid" }
+}>
+2026-05-02 12:48:16.925 xcodebuild[88258:5459831] Error opening log file (/Users/nikitamarshchonok/Library/Logs/CoreSimulator/CoreSimulator.com.apple.dt.xcodebuild.log): Operation not permitted
+[-[SimServiceContext sendRequest:]:1751] ERROR : Unable to deliver request ({
+    "developer_dir" = "/Applications/Xcode.app/Contents/Developer";
+    request = "set_developer_dir";
+}) because we are not connected to CoreSimulatorService.
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project ActionLens.xcodeproj -scheme ActionLens -configuration Debug -destination generic/platform=iOS -derivedDataPath .DerivedDataLocal CODE_SIGNING_ALLOWED=NO build
+
+Build settings from command line:
+    CODE_SIGNING_ALLOWED = NO
+
+2026-05-02 12:48:16.992 xcodebuild[88258:5459757] [MT] DVTAssertions: Warning in DVTFrameworks/DVTFoundation/FileTypes/DVTFileDataTypeDetection.m:80
+Details:  detectedTypeIdentifier (com.apple.binary-property-list) does not conform to matchedTypeIdentifier in MagicFileDataTypeDetector extenson com.apple.property-list. When both are specified, this conformance is required unless overridden by setting allowNonInheritance. extension.identifier:Xcode.MagicFileDataTypeDetector.BinaryPlist
+Object:   <DVTFileDataTypeDetectionMagicCache: 0x8069c2280>
+Method:   -initWithExtension:
+Thread:   <_NSMainThread: 0x1052ea040>{number = 1, name = main}
+Please file a bug at https://feedbackassistant.apple.com with this warning message and any useful information you can provide.
+2026-05-02 12:48:16.994 xcodebuild[88258:5459757] [MT] DVTAssertions: Warning in DVTFrameworks/DVTFoundation/FileTypes/DVTFileDataTypeDetection.m:80
+Details:  detectedTypeIdentifier (com.apple.xml-property-list) does not conform to matchedTypeIdentifier in MagicFileDataTypeDetector extenson com.apple.property-list. When both are specified, this conformance is required unless overridden by setting allowNonInheritance. extension.identifier:Xcode.MagicFileDataTypeDetector.XMLPlist
+Object:   <DVTFileDataTypeDetectionMagicCache: 0x8069c37b0>
+Method:   -initWithExtension:
+Thread:   <_NSMainThread: 0x1052ea040>{number = 1, name = main}
+Please file a bug at https://feedbackassistant.apple.com with this warning message and any useful information you can provide.
+[-[SimServiceContext initWithDeveloperDir:connectionType:error:]:432] WARN  : Unable to discover any Simulator runtimes. Developer Directory is /Applications/Xcode.app/Contents/Developer.
+[-[SimDiskImageManager init]:175] ERROR : Could not kickstart simdiskimaged; SimDiskImageManager services will not be available: Error Domain=NSPOSIXErrorDomain Code=53 "Software caused connection abort" UserInfo={NSLocalizedDescription=Error returned in reply from CoreSimulatorService: Connection invalid}
+[-[SimDiskImageManager _onQueue_checkConnection:]:239] ERROR : simdiskimaged returned error (invalid), marking disconnected.
+[-[SimDiskImageManager _onQueue_checkConnection:]:239] ERROR : simdiskimaged returned error (invalid), marking disconnected.
+[-[SimServiceContext initWithDeveloperDir:connectionType:error:]_block_invoke:468] ERROR : Could not get list of trusted mount directories: Error Domain=com.apple.CoreSimulator.SimError Code=410 "The service used to manage runtime disk images (simdiskimaged) crashed or is not responding" UserInfo={NSLocalizedDescription=The service used to manage runtime disk images (simdiskimaged) crashed or is not responding}
+[-[SimServiceContext sendRequest:reply:error:]:1771] ERROR : Unable to deliver request ({
+    request = "notification_subscription";
+    "set_path" = "/Users/nikitamarshchonok/Library/Developer/CoreSimulator/Devices";
+}) because we are not connected to CoreSimulatorService.
+2026-05-02 12:48:17.079 xcodebuild[88258:5459764] Error Domain=NSPOSIXErrorDomain Code=61 "Connection refused" UserInfo={NSLocalizedDescription=CoreSimulatorService connection became invalid.  Simulator services will no longer be available.}
+[-[SimServiceContext sendRequest:reply:error:]:1771] ERROR : Unable to deliver request ({
+    request = "notification_subscription";
+    "set_path" = "/Users/nikitamarshchonok/Library/Developer/CoreSimulator/Devices";
+}) because we are not connected to CoreSimulatorService.
+2026-05-02 12:48:17.085 xcodebuild[88258:5459764]  IDESimulatorAvailability: startObservingSimulatorUpdates() FAILED to register SimDeviceSet observer
+2026-05-02 12:48:17.085 xcodebuild[88258:5459831] Error Domain=NSPOSIXErrorDomain Code=61 "Connection refused" UserInfo={NSLocalizedDescription=CoreSimulatorService connection became invalid.  Simulator services will no longer be available.}
+2026-05-02 12:48:17.086 xcodebuild[88258:5459831]  iOSSimulator: [SimServiceContext defaultDeviceSetWithError:] returned nil (Error Domain=NSPOSIXErrorDomain Code=61 "Connection refused" UserInfo={NSLocalizedFailureReason=Failed to subscribe to notifications from CoreSimulatorService., NSLocalizedDescription=Failed to initialize simulator device set., NSUnderlyingError=0x806a68ff0 {Error Domain=NSPOSIXErrorDomain Code=61 "Connection refused" UserInfo={NSLocalizedDescription=CoreSimulatorService connection became invalid.  Simulator services will no longer be available.}}}). Simulator device support disabled.
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (2 targets)
+    Target 'ActionLens' in project 'ActionLens'
+        ➜ Explicit dependency on target 'ActionLensShareExtension' in project 'ActionLens'
+    Target 'ActionLensShareExtension' in project 'ActionLens' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Assets.xcassets
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+Build description signature: 235fed730d7980fdfe1989355fbe0b83
+Build description path: /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/XCBuildData/235fed730d7980fdfe1989355fbe0b83.xcbuilddata
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/SDKStatCaches.noindex/iphoneos26.4-23E237-68a138bb55de9ba35ce6c8c40d12849e.sdkstatcache
+    cd /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk -o /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/SDKStatCaches.noindex/iphoneos26.4-23E237-68a138bb55de9ba35ce6c8c40d12849e.sdkstatcache
+
+CreateBuildDirectory /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products
+    cd /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens.xcodeproj
+    builtin-create-build-directory /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products
+
+CreateBuildDirectory /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex
+    cd /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens.xcodeproj
+    builtin-create-build-directory /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex
+
+CreateBuildDirectory /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos
+    cd /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens.xcodeproj
+    builtin-create-build-directory /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos
+
+CreateBuildDirectory /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens.xcodeproj
+    builtin-create-build-directory /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens.xcodeproj
+    builtin-create-build-directory /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphoneos
+    cd /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens.xcodeproj
+    builtin-create-build-directory /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphoneos
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens-b05e5b87a3091cfbf5075662917f9c8e-VFS-iphoneos/all-product-headers.yaml
+    cd /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens.xcodeproj
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens-b05e5b87a3091cfbf5075662917f9c8e-VFS-iphoneos/all-product-headers.yaml
+
+MkDir /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    /bin/mkdir -p /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-generated-files.hmap (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-generated-files.hmap
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-project-headers.hmap (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-project-headers.hmap
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-all-target-headers.hmap (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension.hmap (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension.hmap
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-own-target-headers.hmap (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-all-non-framework-target-headers.hmap (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension_const_extract_protocols.json (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.SwiftFileList (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.SwiftFileList
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.SwiftConstValuesFileList (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.LinkFileList (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.LinkFileList
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension-OutputFileMap.json (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension.DependencyStaticMetadataFileList (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension.DependencyMetadataFileList (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-DebugEntryPoint-normal-arm64.txt (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-DebugEntryPoint-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-DebugDylibPath-normal-arm64.txt (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-DebugDylibPath-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-DebugDylibInstallName-normal-arm64.txt (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-DebugDylibInstallName-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/empty-ActionLens.plist (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/empty-ActionLens.plist
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens.SwiftFileList (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens.SwiftFileList
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens.SwiftConstValuesFileList (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens_const_extract_protocols.json (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens.LinkFileList (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens.LinkFileList
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens-OutputFileMap.json (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens.hmap (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens.hmap
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens.DependencyStaticMetadataFileList (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens.DependencyMetadataFileList (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-project-headers.hmap (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-project-headers.hmap
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-own-target-headers.hmap (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-generated-files.hmap (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-generated-files.hmap
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-all-target-headers.hmap (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-all-non-framework-target-headers.hmap (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-DebugDylibPath-normal-arm64.txt (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-DebugDylibPath-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-DebugDylibInstallName-normal-arm64.txt (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    write-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-DebugDylibInstallName-normal-arm64.txt
+
+MkDir /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLens.app/PlugIns (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    /bin/mkdir -p /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLens.app/PlugIns
+
+MkDir /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLens.app (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    /bin/mkdir -p /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLens.app
+
+ProcessInfoPlistFile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex/Info.plist /Users/nikitamarshchonok/Desktop/ActionLens/ActionLensShareExtension-Info.plist (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    builtin-infoPlistUtility /Users/nikitamarshchonok/Desktop/ActionLens/ActionLensShareExtension-Info.plist -producttype com.apple.product-type.app-extension -expandbuildsettings -format binary -platform iphoneos -requiredArchitecture arm64 -o /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex/Info.plist
+
+Ld /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex/__preview.dylib normal (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0 -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk -O0 -L/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -F/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -install_name @rpath/ActionLensShareExtension.debug.dylib -Xlinker -dead_strip -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension_dependency_info.dat -o /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex/__preview.dylib
+
+SwiftDriver ActionLensShareExtension normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ActionLensShareExtension -Onone @/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk -target arm64-apple-ios17.0 -g -module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -enable-testing -index-store-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -F /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/SDKStatCaches.noindex/iphoneos26.4-23E237-68a138bb55de9ba35ce6c8c40d12849e.sdkstatcache -output-file-map /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex -sdk-module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension_const_extract_protocols.json -Xcc -iquote -Xcc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-generated-files.hmap -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-own-target-headers.hmap -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-all-target-headers.hmap -Xcc -iquote -Xcc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-project-headers.hmap -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/include -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/DerivedSources-normal/arm64 -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/DerivedSources/arm64 -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension-Swift.h -working-directory /Users/nikitamarshchonok/Desktop/ActionLens -experimental-emit-module-separately -disable-cmo
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_AvailabilityInternal-7XEIHD767M1VMFSZFMWNZI0L4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_stdarg-B6F18DLFNTOOIVQ2E93RCY6Y.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_stddef-3SNQVXGB0AM25FUDJ41DA8WX2.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/SwiftShims-2WUE0S463UIG289FK1WRH4R4Y.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_SwiftConcurrencyShims-AWMHC56B40O1KXVXLDIGUX9A9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/DeveloperToolsSupport-DB8KVMUHE8X4R29FD62VAX0BT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/ptrcheck-4LEYKDF2I8A7A6HFSXREV83WP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_float-34LG7VJLWW3P8ATI82O4PBOJC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_stdbool-4MCCRCAGWUFXEJDBHZKX58GD5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/ptrauth-7G22UX8C0ZEXFC5MDJC71LZJ9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_DarwinFoundation1-2L1V1MPXYW0TKXU0CPWIUOQNP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_DarwinFoundation2-2EPTLWT475A6KEQPVTQZOKSR5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_limits-1QR1DVCU18KCT6KQWXTFC04PL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_stdint-6HAIHDY3EQOVVYWANELZY3FKC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/sys_types-3A321HGXWPVYOLL2YQBJ62SOG.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_tgmath-2HWSC79TQPYQNF1YNUJ5WCM3R.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_DarwinFoundation3-4YJ6BME2IRPR6974J35Y0XGK7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_stdatomic-COZQJV4UGFHRBK9Z85PU8LO9S.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_intrinsics-CEV8YZST6FBISG8KCQ250KZBH.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_inttypes-DYZTDJBJKSN3AL8QW9X6N8EUW.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Darwin-YZYTC3Y06ZY03TXILKBR2FJ9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/simd-3L07BHM966MBB0Y5HDKUZCDVE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/ObjectiveC-68QRH3AAY5S0R0V3PJ73LYE2.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/MachO-C7FCSV42M2ETJ4V142S5KHOR7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/os_object-A6D9JHTN6I9Q8EV6QTATGU7BW.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/os_workgroup-8RZV7TRHOD6KNOCY99AUXZ5R9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Spatial-9C67LLZWTHVDGBMQAIM4ND9HB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Dispatch-CU0JTHABVU09CUGKWSVWQ8ZZH.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreFoundation-79ZFBUEES0ME0CCA8GYM1LY0O.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/XPC-4S88VMXPKS92PUA6AB7XIQVVG.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/os-83S8ANJAMW9FEIF15NEJVIQWJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreGraphics-DJBJ0ZOPUVRQNFZGINACCOVVL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CFNetwork-8FDAU40Q0XE8XC5TTH2G0Q6KV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Security-4BT32383HJMKU3F66L99YV4J3.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Foundation-9HQR6RUUGXPBXEMXZ0VT4UBIM.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/ImageIO-9Z8R0RXRYMD11L6M8NKL958HJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreText-E80LPJGY6H7EQVZT7H9Y8SOMD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/UIUtilities-2KSGXNG510IDZVHZO3IKXR9KM.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Symbols-9205ERN2FHSL69FXKM0TV57S6.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreTransferable-BZI170X5TMPB4H6A46UZA0TY4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/FileProvider-AXIB6ZWRS1B2NZXS3AHJ30EQE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/OSLog-37Q7EQWEXWYGO7308YN012RNK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/UniformTypeIdentifiers-3ZP84I4XBAEAM8IFYGMOFT0CP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Accessibility-ARBS6485H9S8O07CHI1C14F9F.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/UserNotifications-4S8I914AIRQMYKPKUH068FX7U.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/IOSurface-60BQIG8TQZEZECCGUMOIPHL8B.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/DataDetection-7S3F5SON1FXUGKQMFHGB67UKN.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/OpenGLES-7SSWSANAI53GIJPVK3JXHCVKK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Metal-9X675IFX2SC7SGVVIARDVBG5K.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreVideo-24W2W8Y6CSDOF4MYI1QRH14WG.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreImage-EACSL05Z60UTNQEILGYNWEW7O.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/QuartzCore-BERXCHGKHX52Y8BHXKH7CFGIQ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/SwiftUICore-Y2ZMV6RAXFZYWHZWJFEGIFS4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/UIKit-8QGCM1WBBOPQOPIJB3XKU6ZVY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Social-2MOQ9C7DT3I9IBUPTF15O2ZEX.pcm
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ ActionLensShareExtension (in target 'ActionLensShareExtension' from project 'ActionLens')
+
+EmitSwiftModule normal arm64 (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 Compiling\ ExtensionSharedInboxModels.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLensShareExtension/ExtensionSharedInboxModels.swift (in target 'ActionLensShareExtension' from project 'ActionLens')
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLensShareExtension/ExtensionSharedInboxModels.swift (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 Compiling\ ShareViewController.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLensShareExtension/ShareViewController.swift (in target 'ActionLensShareExtension' from project 'ActionLens')
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLensShareExtension/ShareViewController.swift (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for ActionLensShareExtension (in target 'ActionLensShareExtension' from project 'ActionLens')
+
+SwiftDriver\ Compilation\ Requirements ActionLensShareExtension normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ActionLensShareExtension -Onone @/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk -target arm64-apple-ios17.0 -g -module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -enable-testing -index-store-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -F /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/SDKStatCaches.noindex/iphoneos26.4-23E237-68a138bb55de9ba35ce6c8c40d12849e.sdkstatcache -output-file-map /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex -sdk-module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension_const_extract_protocols.json -Xcc -iquote -Xcc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-generated-files.hmap -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-own-target-headers.hmap -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-all-target-headers.hmap -Xcc -iquote -Xcc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-project-headers.hmap -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/include -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/DerivedSources-normal/arm64 -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/DerivedSources/arm64 -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension-Swift.h -working-directory /Users/nikitamarshchonok/Desktop/ActionLens -experimental-emit-module-separately -disable-cmo
+
+Copy /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.swiftmodule/arm64-apple-ios.abi.json /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.abi.json (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.abi.json /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.swiftmodule/arm64-apple-ios.abi.json
+
+SwiftMergeGeneratedHeaders /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/DerivedSources/ActionLensShareExtension-Swift.h /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension-Swift.h (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    builtin-swiftHeaderTool -arch arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension-Swift.h -o /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/DerivedSources/ActionLensShareExtension-Swift.h
+
+Copy /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.swiftmodule/arm64-apple-ios.swiftmodule /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.swiftmodule (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.swiftmodule /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.swiftmodule/arm64-apple-ios.swiftmodule
+
+Copy /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.swiftmodule/arm64-apple-ios.swiftdoc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.swiftdoc (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.swiftdoc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.swiftmodule/arm64-apple-ios.swiftdoc
+
+Copy /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.swiftsourceinfo (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.swiftsourceinfo /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo
+
+MkDir /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_output/thinned (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    /bin/mkdir -p /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_output/thinned
+
+MkDir /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_output/unthinned (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    /bin/mkdir -p /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_output/unthinned
+
+GenerateAssetSymbols /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Assets.xcassets (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    /Applications/Xcode.app/Contents/Developer/usr/bin/actool /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Assets.xcassets --compile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLens.app --output-format human-readable-text --notices --warnings --export-dependency-info /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_dependencies --output-partial-info-plist /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_generated_info.plist --app-icon AppIcon --accent-color AccentColor --compress-pngs --enable-on-demand-resources YES --development-region en --target-device iphone --target-device ipad --minimum-deployment-target 17.0 --platform iphoneos --bundle-identifier com.nikita.project.ActionLens --generate-swift-asset-symbols /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/DerivedSources/GeneratedAssetSymbols.swift --generate-objc-asset-symbols /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/DerivedSources/GeneratedAssetSymbols.h --generate-asset-symbol-index /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+2026-05-02 12:48:25.131 ibtoold[88651:5460831] CoreSimulatorService connection became invalid.  Simulator services will no longer be available.
+2026-05-02 12:48:25.133 ibtoold[88651:5460832] Logging connecton invalid: <OS_xpc_error: <dictionary: 0x1f00180e0> { count = 1, transaction: 0, voucher = 0x0, contents =
+	"XPCErrorDescription" => <string: 0x1f0018220> { string cache = 0x0, length = 18, contents = "Connection invalid" }
+}>
+2026-05-02 12:48:25.133 ibtoold[88651:5460844] Error opening log file (/Users/nikitamarshchonok/Library/Logs/CoreSimulator/CoreSimulator.com.apple.ibtool.log): Operation not permitted
+[-[SimServiceContext sendRequest:]:1751] ERROR : Unable to deliver request ({
+    "developer_dir" = "/Applications/Xcode.app/Contents/Developer";
+    request = "set_developer_dir";
+}) because we are not connected to CoreSimulatorService.
+[-[SimServiceContext initWithDeveloperDir:connectionType:error:]:432] WARN  : Unable to discover any Simulator runtimes. Developer Directory is /Applications/Xcode.app/Contents/Developer.
+[-[SimDiskImageManager _onQueue_checkConnection:]:239] ERROR : simdiskimaged returned error (invalid), marking disconnected.
+[-[SimDiskImageManager init]:175] ERROR : Could not kickstart simdiskimaged; SimDiskImageManager services will not be available: Error Domain=NSPOSIXErrorDomain Code=53 "Software caused connection abort" UserInfo={NSLocalizedDescription=Error returned in reply from CoreSimulatorService: Connection invalid}
+[-[SimDiskImageManager _onQueue_checkConnection:]:239] ERROR : simdiskimaged returned error (invalid), marking disconnected.
+[-[SimServiceContext initWithDeveloperDir:connectionType:error:]_block_invoke:468] ERROR : Could not get list of trusted mount directories: Error Domain=com.apple.CoreSimulator.SimError Code=410 "The service used to manage runtime disk images (simdiskimaged) crashed or is not responding" UserInfo={NSLocalizedDescription=The service used to manage runtime disk images (simdiskimaged) crashed or is not responding}
+[-[SimServiceContext sendRequest:reply:error:]:1771] ERROR : Unable to deliver request ({
+    request = "notification_subscription";
+    "set_path" = "/Users/nikitamarshchonok/Library/Developer/CoreSimulator/Devices";
+}) because we are not connected to CoreSimulatorService.
+2026-05-02 12:48:25.270 ibtoold[88651:5460733] Error Domain=NSPOSIXErrorDomain Code=61 "Connection refused" UserInfo={NSLocalizedDescription=CoreSimulatorService connection became invalid.  Simulator services will no longer be available.}
+/* com.apple.actool.compilation-results */
+/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/DerivedSources/GeneratedAssetSymbols.h
+/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/DerivedSources/GeneratedAssetSymbols.swift
+
+
+CompileAssetCatalogVariant thinned /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLens.app /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Assets.xcassets (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    /Applications/Xcode.app/Contents/Developer/usr/bin/actool /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Assets.xcassets --compile /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_output/thinned --output-format human-readable-text --notices --warnings --export-dependency-info /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_dependencies_thinned --output-partial-info-plist /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_generated_info.plist_thinned --app-icon AppIcon --accent-color AccentColor --compress-pngs --enable-on-demand-resources YES --development-region en --target-device iphone --target-device ipad --minimum-deployment-target 17.0 --platform iphoneos
+2026-05-02 12:48:25.131 ibtoold[88652:5460833] CoreSimulatorService connection became invalid.  Simulator services will no longer be available.
+2026-05-02 12:48:25.133 ibtoold[88652:5460843] Logging connecton invalid: <OS_xpc_error: <dictionary: 0x1f00180e0> { count = 1, transaction: 0, voucher = 0x0, contents =
+	"XPCErrorDescription" => <string: 0x1f0018220> { string cache = 0x0, length = 18, contents = "Connection invalid" }
+}>
+2026-05-02 12:48:25.133 ibtoold[88652:5460843] Error opening log file (/Users/nikitamarshchonok/Library/Logs/CoreSimulator/CoreSimulator.com.apple.ibtool.log): Operation not permitted
+[-[SimServiceContext sendRequest:]:1751] ERROR : Unable to deliver request ({
+    "developer_dir" = "/Applications/Xcode.app/Contents/Developer";
+    request = "set_developer_dir";
+}) because we are not connected to CoreSimulatorService.
+[-[SimServiceContext initWithDeveloperDir:connectionType:error:]:432] WARN  : Unable to discover any Simulator runtimes. Developer Directory is /Applications/Xcode.app/Contents/Developer.
+[-[SimDiskImageManager init]:175] ERROR : Could not kickstart simdiskimaged; SimDiskImageManager services will not be available: Error Domain=NSPOSIXErrorDomain Code=53 "Software caused connection abort" UserInfo={NSLocalizedDescription=Error returned in reply from CoreSimulatorService: Connection invalid}
+[-[SimDiskImageManager _onQueue_checkConnection:]:239] ERROR : simdiskimaged returned error (invalid), marking disconnected.
+[-[SimDiskImageManager _onQueue_checkConnection:]:239] ERROR : simdiskimaged returned error (invalid), marking disconnected.
+[-[SimServiceContext initWithDeveloperDir:connectionType:error:]_block_invoke:468] ERROR : Could not get list of trusted mount directories: Error Domain=com.apple.CoreSimulator.SimError Code=410 "The service used to manage runtime disk images (simdiskimaged) crashed or is not responding" UserInfo={NSLocalizedDescription=The service used to manage runtime disk images (simdiskimaged) crashed or is not responding}
+[-[SimServiceContext sendRequest:reply:error:]:1771] ERROR : Unable to deliver request ({
+    request = "notification_subscription";
+    "set_path" = "/Users/nikitamarshchonok/Library/Developer/CoreSimulator/Devices";
+}) because we are not connected to CoreSimulatorService.
+2026-05-02 12:48:25.275 ibtoold[88652:5460734] Error Domain=NSPOSIXErrorDomain Code=61 "Connection refused" UserInfo={NSLocalizedDescription=CoreSimulatorService connection became invalid.  Simulator services will no longer be available.}
+/* com.apple.actool.compilation-results */
+/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_generated_info.plist_thinned
+
+
+SwiftDriverJobDiscovery normal arm64 Compiling ExtensionSharedInboxModels.swift (in target 'ActionLensShareExtension' from project 'ActionLens')
+
+LinkAssetCatalog /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Assets.xcassets (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    builtin-linkAssetCatalog --thinned /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_output/thinned --thinned-dependencies /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_dependencies_thinned --thinned-info-plist-content /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_generated_info.plist_thinned --unthinned /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_output/unthinned --unthinned-dependencies /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_dependencies_unthinned --unthinned-info-plist-content /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_generated_info.plist_unthinned --output /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLens.app --plist-output /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/assetcatalog_generated_info.plist
+
+SwiftDriver ActionLens normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ActionLens -Onone @/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-bare-slash-regex -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk -target arm64-apple-ios17.0 -g -module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -F /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -emit-localized-strings -emit-localized-strings-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64 -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/SDKStatCaches.noindex/iphoneos26.4-23E237-68a138bb55de9ba35ce6c8c40d12849e.sdkstatcache -output-file-map /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex -sdk-module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens_const_extract_protocols.json -Xcc -iquote -Xcc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-generated-files.hmap -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-own-target-headers.hmap -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-all-target-headers.hmap -Xcc -iquote -Xcc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-project-headers.hmap -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/include -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/DerivedSources-normal/arm64 -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/DerivedSources/arm64 -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens-Swift.h -working-directory /Users/nikitamarshchonok/Desktop/ActionLens -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Compiling ShareViewController.swift (in target 'ActionLensShareExtension' from project 'ActionLens')
+
+SwiftDriver\ Compilation ActionLensShareExtension normal arm64 com.apple.xcode.tools.swift.compiler (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name ActionLensShareExtension -Onone @/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk -target arm64-apple-ios17.0 -g -module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -enable-testing -index-store-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -F /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -c -j12 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/SDKStatCaches.noindex/iphoneos26.4-23E237-68a138bb55de9ba35ce6c8c40d12849e.sdkstatcache -output-file-map /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex -sdk-module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension_const_extract_protocols.json -Xcc -iquote -Xcc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-generated-files.hmap -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-own-target-headers.hmap -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-all-target-headers.hmap -Xcc -iquote -Xcc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-project-headers.hmap -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/include -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/DerivedSources-normal/arm64 -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/DerivedSources/arm64 -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension-Swift.h -working-directory /Users/nikitamarshchonok/Desktop/ActionLens -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex/ActionLensShareExtension.debug.dylib normal (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0 -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk -O0 -L/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphoneos -L/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -F/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphoneos -F/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -filelist /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.LinkFileList -install_name @rpath/ActionLensShareExtension.debug.dylib -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -rpath -Xlinker @executable_path/../../Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension_dependency_info.dat -fapplication-extension -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.swiftmodule @/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension-linker-args.resp -Xlinker -alias -Xlinker _NSExtensionMain -Xlinker ___debug_main_executable_dylib_entry_point -o /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex/ActionLensShareExtension.debug.dylib
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/SwiftShims-2SZUZBPS17023TU6FIBTPE2EV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_stdarg-7T0C6LZT7DA36XJGA35P9BDR2.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_AvailabilityInternal-7NXKE0GFEJRW4GZLA6CDM146Q.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/ptrauth-94VP6TRACA7VVGNZ35B7L4GDZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/DeveloperToolsSupport-8T8J08514SV6LBO0GQFZ4ORIN.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_SwiftConcurrencyShims-8K66QNJLJUXIT9NJV6MY4ES8L.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_float-42ZV3AWPBH11A5YEA2AUHKIJB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_stdbool-11WZ6KT0GBH4CAURFTDKI58L5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/ptrcheck-7UWY5GANSKSHWKPZM7MEHSQRE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_stddef-1LU29GVKZKR8MM45NXPEJG633.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_DarwinFoundation1-5JDMK3P5M1YM0U4DPY2KDOQQO.pcm
+
+ConstructStubExecutorLinkFileList /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-ExecutorLinkFileList-normal-arm64.txt (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    construct-stub-executor-link-file-list /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex/ActionLensShareExtension.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library without Swift entry point. (in target 'ActionLensShareExtension' from project 'ActionLens')
+
+Ld /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex/ActionLensShareExtension normal (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk -O0 -L/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -F/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -rpath -Xlinker @executable_path/../../Frameworks -rdynamic -Xlinker -no_deduplicate -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_entry -Xlinker /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-DebugEntryPoint-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension-ExecutorLinkFileList-normal-arm64.txt /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex/ActionLensShareExtension.debug.dylib -o /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex/ActionLensShareExtension
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_limits-4OWJOGY9AVHXMG8YSJKO9JRBT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/ExtensionFoundation-7UM6X2N58NYXXR59PQ0BH3WS5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_DarwinFoundation2-6SY9Z44IY2HUNOK3OY39JF1CW.pcm
+
+ExtractAppIntentsMetadata (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name ActionLensShareExtension --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk --xcode-version 17E192 --platform-family iOS --deployment-target 17.0 --bundle-identifier com.nikita.project.ActionLens.ShareExtension --output /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex --target-triple arm64-apple-ios17.0 --binary-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex/ActionLensShareExtension --dependency-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension_dependency_info.dat --stringsdata-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.SwiftFileList --metadata-file-list /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension.DependencyMetadataFileList --static-metadata-file-list /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension.DependencyStaticMetadataFileList --swift-const-vals-list /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-05-02 12:48:26.572 appintentsmetadataprocessor[88767:5461116] Starting appintentsmetadataprocessor export
+2026-05-02 12:48:26.575 appintentsmetadataprocessor[88767:5461116] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+AppIntentsSSUTraining (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex/Info.plist --temp-dir-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ssu --bundle-id com.nikita.project.ActionLens.ShareExtension --product-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex --extracted-metadata-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex/Metadata.appintents --metadata-file-list /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/ActionLensShareExtension.DependencyMetadataFileList --source-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex/Info.plist --archive-ssu-assets
+2026-05-02 12:48:26.602 appintentsnltrainingprocessor[88768:5461120] Parsing options for appintentsnltrainingprocessor
+2026-05-02 12:48:26.602 appintentsnltrainingprocessor[88768:5461120] Starting AppIntents SSU YAML Generation
+2026-05-02 12:48:26.602 appintentsnltrainingprocessor[88768:5461120] No AppShortcuts found - Skipping.
+
+RegisterExecutionPolicyException /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    builtin-RegisterExecutionPolicyException /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex
+
+Touch /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex (in target 'ActionLensShareExtension' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    /usr/bin/touch -c /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLensShareExtension.appex
+
+CpResource /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLens.app/README.md /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Resources/README.md (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Resources/README.md /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLens.app
+
+Ld /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLens.app/__preview.dylib normal (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0 -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk -O0 -L/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -F/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -install_name @rpath/ActionLens.debug.dylib -Xlinker -dead_strip -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens_dependency_info.dat -o /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/ActionLens.app/__preview.dylib
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_tgmath-1I17V8TOUSI8KEKM6T3FPYVCC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/sys_types-7YG4T3L97E8JN86INKH7AKQ9G.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_stdint-BXSYYUO541LPXQUBS6NA8RAF.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_intrinsics-D0OD46EDL6SCR7W9DEXCT9SKL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_DarwinFoundation3-BASNATX6GRON415BHELCF0V9V.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_stdatomic-DWT07NW46X3EER3VBEIPJ86LA.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_Builtin_inttypes-ENPSMEWJFKCTE52L6LIVQPYHD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Darwin-7TOM9NIUST36EZLBXCEQGFPBQ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/simd-AMYND619SUB1NI8U5V01XJ7DL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/ObjectiveC-3DED6TZGNSPC819MQHB8UEZO2.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/MachO-CPD89OU4FGFFYYHAIKBJ4G123.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/os_object-88P7QTOK4G9QNJ4A00CO5JUUR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/os_workgroup-BBT8HOEWXVBN8299Q3KATE0D.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Spatial-5WB07H01UW2XL7YG1RDRTUPZY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Dispatch-2FNM5G3XIN6S1BP5C9PYCCMNX.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreFoundation-2KIWV2ACY0B9DFPIMQY3NQNPV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/dnssd-B1GQI4NKE207C96YTWERSR4ME.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/XPC-86RDPQOJB6AFWK9TCPF1XD1TY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/os-BAK9DQXKVWZSQRK129H45GF09.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CFNetwork-638ZN1FLYFKWVUZH8TY4W0YCT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/AddressBook-B231JPHBDGSD3U4W8SH2SPOET.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Security-3A8SMLDQ3XW8LQFCNCCWQ77Y8.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreAudioTypes-2RDIK12MD28HK2W6RKO11XRYE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreGraphics-2ZN0I3YIW04WF3KFMVDTB5FA8.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreAudio-8JPMO85X02V7WRVPWYXGGA7O6.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Foundation-A3JQVQY91AYIZK3HZT3CQOBYW.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/ImageIO-8PWC8B7PXBRK2OC5OBOQ9A0ST.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreText-HSHH89NC5OFJ6UN3IKA3LPQU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/IOSurface-6RS8Q68NMHFAWB9YNK6J4UUZI.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Symbols-2ETYHP11NS8WCJO9NL80DLDNY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreData-9IY70H307B7UB1AELKNOANCTP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/FileProvider-2NRXJ468L7C6MXER4B14QWTDA.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreMIDI-3J1OZ7RWZ7GFCEPN8JAVVKRLZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/UniformTypeIdentifiers-EBR274Y2TDXPZFMO8ZZ0K9QZT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/_LocationEssentials-B0TYCWTQ47Q46RVHJG8LGFQBY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Contacts-DJ45Y29W5NGQJC34HIU2NEPX7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Network-9ND8RNRMDB8YBJ8KWGKVM0H6M.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/OSLog-1ZWVC10NXN0UCIYOFL3QA91SW.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/UserNotifications-CFNXDKAQ4VZHN433YAIL8VZE0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/DataDetection-5HHY55AZIRG44N208E2S7OXP8.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Accessibility-ANVSNHGA91MELFV54AI0GG9V1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreLocation-6T9EAN2Z7JB1SS37BRAZJEL03.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreTransferable-KJ1MBC4ZFG7U0JECS9G18ALM.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/UIUtilities-3OWB3MVVKU6PIP8P7YSVJGE1L.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/OpenGLES-3992YG5LKKG5CXL2NUR1SJF39.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Metal-7RNZJLV6MFJGZ99YYNKYF5IXU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/AudioToolbox-33R0IJU7Z04LB3KMO8GRM3N5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/AVRouting-6NGVPZ0LKFNMMQ7DWB0NMDQV1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/EventKit-DZDTWL0WQYJM0IC0F8KSBY2ZG.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreVideo-6WZCDE083FYZJOY21UCNKXT0J.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreML-CS39ITC3W2SK0EGF9H63S92DV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Accelerate-9K5H8UVAHN3CMGAI976UIROKE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreMedia-6F10JWSA3IBRTY8DVL6P2KAPY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/CoreImage-3W1QD2FAMHPV1F7X1JJ1J6MIV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/QuartzCore-CILVXOFP8G0SHLGL9YL3TXBR9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/SwiftUICore-4AHA9XP2UNYDSITWL9UMM05LH.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/AVFAudio-E8LDCSCI1Q1HCCK623YV19LY4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Vision-2CXBGMJY4JFJCSNORSZAWT18N.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/MediaToolbox-9R4P5AEMKH2DCSR8HOGMHV9SA.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/UIKit-D85GAFSEGCWGETCP1BJX9BBN7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/AVFoundation-6T7KWDBHRGC4I3GK73QA10N3M.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Photos-CWICUL5KLUVFHDZLTIT1O233Y.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/SwiftUI-4RGUQ8PU5BAG12NU058WFNZDJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/PhotosUI-96IIFZRK0LLEFIY5IEOPE456G.pcm
+
+SwiftCompile normal arm64 Compiling\ AppShellService.swift,\ ContactsActionService.swift,\ DemoShowcaseService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/AppShellService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/ContactsActionService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/DemoShowcaseService.swift (in target 'ActionLens' from project 'ActionLens')
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/AppShellService.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/ContactsActionService.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/DemoShowcaseService.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+sandbox-exec: sandbox_apply: Operation not permitted
+SwiftEmitModule normal arm64 Emitting\ module\ for\ ActionLens (in target 'ActionLens' from project 'ActionLens')
+sandbox-exec: sandbox_apply: Operation not permitted
+Failed frontend command:
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend -frontend -emit-module -experimental-skip-non-inlinable-function-bodies-without-types /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/App/ActionLensApp.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/App/FirstRunOnboardingView.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/App/RootTabView.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/AppEnvironment.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/InboxFiltering.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/InboxItemType.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/InboxUrgencyGrouping.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/OnboardingState.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/SharedInboxPayload.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Extensions/View+Placeholder.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Import/ImportView.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Import/ImportViewModel.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Inbox/InboxItemDetailView.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Inbox/InboxItemDetailViewModel.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Inbox/InboxView.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Inbox/InboxViewModel.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Search/SearchView.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Search/SearchViewModel.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Settings/SettingsView.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Settings/SettingsViewModel.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Models/InboxItem.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/AppShellService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/ContactsActionService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/DemoShowcaseService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/EventKitActionService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/ImageOCRService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/ImportService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/InboxSeedService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/ItemTypeBackfillService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/LocalEntityExtractionService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/LocalItemClassificationService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/LocalSmartActionService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/SharedInboxDebugStateStore.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/SharedInboxIngestionService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/SharedInboxStore.swift /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/DerivedSources/GeneratedAssetSymbols.swift -target arm64-apple-ios17.0 -module-can-import-version DeveloperToolsSupport 23.40.26 23.40.26 -module-can-import-version SwiftUI 7.4.27.1 7.4.27 -module-can-import-version UIKit 9126.4.27.1 9126.4.27 -disable-cross-import-overlay-search -swift-module-cross-import PhotosUI /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/PhotosUI.framework/Modules/PhotosUI.swiftcrossimport/SwiftUI.swiftoverlay -swift-module-cross-import PhotosUI /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/PhotosUI.framework/Modules/PhotosUI.swiftcrossimport/WidgetKit.swiftoverlay -swift-module-cross-import PhotosUI /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk/System/Library/Frameworks/PhotosUI.framework/Modules/PhotosUI.swiftcrossimport/SwiftUI.swiftoverlay -swift-module-cross-import PhotosUI /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk/System/Library/Frameworks/PhotosUI.framework/Modules/PhotosUI.swiftcrossimport/WidgetKit.swiftoverlay -swift-module-cross-import SwiftData /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk/System/Library/Frameworks/SwiftData.framework/Modules/SwiftData.swiftcrossimport/CoreData.swiftoverlay -swift-module-cross-import SwiftData /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk/System/Library/Frameworks/SwiftData.framework/Modules/SwiftData.swiftcrossimport/SwiftUI.swiftoverlay -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/swift/host/plugins/libFoundationMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server\#FoundationMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/swift/host/plugins/libObservationMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server\#ObservationMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/swift/host/plugins/libPreviewsMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server\#PreviewsMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/swift/host/plugins/libSwiftDataMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server\#SwiftDataMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/swift/host/plugins/libSwiftMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server\#SwiftMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/swift/host/plugins/libSwiftUIMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server\#SwiftUIMacros -disable-implicit-swift-modules -Xcc -fno-implicit-modules -Xcc -fno-implicit-module-maps -explicit-swift-module-map-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens-dependencies-1.json -Xllvm -aarch64-use-tbi -enable-objc-interop -stack-check -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk -I /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -F /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos -no-color-diagnostics -Xcc -fno-color-diagnostics -enable-testing -g -debug-info-format\=dwarf -dwarf-version\=4 -module-cache-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -swift-version 5 -Onone -D DEBUG -serialize-debugging-options -const-gather-protocols-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens_const_extract_protocols.json -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -default-isolation\=MainActor -empty-abi-descriptor -validate-clang-modules-once -clang-build-session-file /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/ModuleCache.noindex/Session.modulevalidation -Xcc -working-directory -Xcc /Users/nikitamarshchonok/Desktop/ActionLens -enable-anonymous-context-mangled-names -file-compilation-dir /Users/nikitamarshchonok/Desktop/ActionLens -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -Xcc -ivfsstatcache -Xcc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/SDKStatCaches.noindex/iphoneos26.4-23E237-68a138bb55de9ba35ce6c8c40d12849e.sdkstatcache -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-generated-files.hmap -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-own-target-headers.hmap -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-all-target-headers.hmap -Xcc -iquote -Xcc /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/ActionLens-project-headers.hmap -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Products/Debug-iphoneos/include -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/DerivedSources-normal/arm64 -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/DerivedSources/arm64 -Xcc -I/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/DerivedSources -Xcc -DDEBUG\=1 -no-auto-bridging-header-chaining -module-name ActionLens -frontend-parseable-output -disable-clang-spi -clang-target arm64-apple-ios26.4 -target-sdk-version 26.4 -target-sdk-name iphoneos26.4 -in-process-plugin-server-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/libSwiftInProcPluginServer.dylib -emit-module-doc-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens.swiftdoc -emit-module-source-info-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens.swiftsourceinfo -emit-objc-header-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens-Swift.h -serialize-diagnostics-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens-primary-emit-module.dia -emit-dependencies-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens-primary-emit-module.d -o /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens.swiftmodule -emit-abi-descriptor-path /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/Objects-normal/arm64/ActionLens.abi.json
+
+EmitSwiftModule normal arm64 (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Models/InboxItem.swift:5:13: error: external macro implementation type 'SwiftDataMacros.PersistentModelMacro' could not be found for macro 'Model()'; '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server' produced malformed response
+final class InboxItem {
+            ^
+SwiftData.Model:3:373: note: 'Model()' declared here
+@attached(member, conformances: Observable, PersistentModel, Sendable, names: named(_$backingData), named(persistentBackingData), named(schemaMetadata), named(init), named(_$observationRegistrar), named(_SwiftDataNoType), named(access), named(withMutation)) @attached(memberAttribute) @attached(extension, conformances: Observable, PersistentModel, Sendable) public macro Model() = #externalMacro(module: "SwiftDataMacros", type: "PersistentModelMacro")
+                                                                                                                                                                                                                                                                                                                                                                                    ^
+/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/App/ActionLensApp.swift:12:30: error: cannot convert value of type 'InboxItem.Type' to expected element type 'Array<any PersistentModel.Type>.ArrayLiteralElement' (aka 'any PersistentModel.Type')
+        let schema = Schema([InboxItem.self])
+                             ^
+/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Inbox/InboxItemDetailView.swift:7:6: error: 'init(wrappedValue:)' is unavailable: The wrapped value must be an object that conforms to Observable
+    @Bindable private var item: InboxItem
+     ^~~~~~~~
+SwiftUI.Bindable.init:3:10: note: 'init(wrappedValue:)' has been explicitly marked unavailable here
+  public init(wrappedValue: Value)}
+         ^
+/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Models/InboxItem.swift:6:29: error: external macro implementation type 'SwiftDataMacros.PersistentModelMacro' could not be found for macro 'Model()'; '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server' produced malformed response
+    @Attribute(.unique) var id: UUID
+                            ^
+SwiftData.Model:3:373: note: 'Model()' declared here
+@attached(member, conformances: Observable, PersistentModel, Sendable, names: named(_$backingData), named(persistentBackingData), named(schemaMetadata), named(init), named(_$observationRegistrar), named(_SwiftDataNoType), named(access), named(withMutation)) @attached(memberAttribute) @attached(extension, conformances: Observable, PersistentModel, Sendable) public macro Model() = #externalMacro(module: "SwiftDataMacros", type: "PersistentModelMacro")
+                                                                                                                                                                                                                                                                                                                                                                                    ^
+/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Models/InboxItem.swift:7:9: error: external macro implementation type 'SwiftDataMacros.PersistentModelMacro' could not be found for macro 'Model()'; '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server' produced malformed response
+    var title: String
+        ^
+SwiftData.Model:3:373: note: 'Model()' declared here
+@attached(member, conformances: Observable, PersistentModel, Sendable, names: named(_$backingData), named(persistentBackingData), named(schemaMetadata), named(init), named(_$observationRegistrar), named(_SwiftDataNoType), named(access), named(withMutation)) @attached(memberAttribute) @attached(extension, conformances: Observable, PersistentModel, Sendable) public macro Model() = #externalMacro(module: "SwiftDataMacros", type: "PersistentModelMacro")
+                                                                                                                                                                                                                                                                                                                                                                                    ^
+/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Models/InboxItem.swift:8:9: error: external macro implementation type 'SwiftDataMacros.PersistentModelMacro' could not be found for macro 'Model()'; '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server' produced malformed response
+    var sourceType: String
+        ^
+SwiftData.Model:3:373: note: 'Model()' declared here
+@attached(member, conformances: Observable, PersistentModel, Sendable, names: named(_$backingData), named(persistentBackingData), named(schemaMetadata), named(init), named(_$observationRegistrar), named(_SwiftDataNoType), named(access), named(withMutation)) @attached(memberAttribute) @attached(extension, conformances: Observable, PersistentModel, Sendable) public macro Model() = #externalMacro(module: "SwiftDataMacros", type: "PersistentModelMacro")
+                                                                                                                                                                                                                                                                                                                                                                                    ^
+/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Models/InboxItem.swift:9:9: error: external macro implementation type 'SwiftDataMacros.PersistentModelMacro' could not be found for macro 'Model()'; '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server' produced malformed response
+    var createdAt: Date
+        ^
+SwiftData.Model:3:373: note: 'Model()' declared here
+@attached(member, conformances: Observable, PersistentModel, Sendable, names: named(_$backingData), named(persistentBackingData), named(schemaMetadata), named(init), named(_$observationRegistrar), named(_SwiftDataNoType), named(access), named(withMutation)) @attached(memberAttribute) @attached(extension, conformances: Observable, PersistentModel, Sendable) public macro Model() = #externalMacro(module: "SwiftDataMacros", type: "PersistentModelMacro")
+                                                                                                                                                                                                                                                                                                                                                                                    ^
+/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Models/InboxItem.swift:10:9: error: external macro implementation type 'SwiftDataMacros.PersistentModelMacro' could not be found for macro 'Model()'; '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server' produced malformed response
+    var status: String
+        ^
+SwiftData.Model:3:373: note: 'Model()' declared here
+@attached(member, conformances: Observable, PersistentModel, Sendable, names: named(_$backingData), named(persistentBackingData), named(schemaMetadata), named(init), named(_$observationRegistrar), named(_SwiftDataNoType), named(access), named(withMutation)) @attached(memberAttribute) @attached(extension, conformances: Observable, PersistentModel, Sendable) public macro Model() = #externalMacro(module: "SwiftDataMacros", type: "PersistentModelMacro")
+                                                                                                                                                                                                                                                                                                                                                                                    ^
+/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Models/InboxItem.swift:11:9: error: external macro implementation type 'SwiftDataMacros.PersistentModelMacro' could not be found for macro 'Model()'; '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server' produced malformed response
+    var extractedText: String?
+        ^
+SwiftData.Model:3:373: note: 'Model()' declared here
+@attached(member, conformances: Observable, PersistentModel, Sendable, names: named(_$backingData), named(persistentBackingData), named(schemaMetadata), named(init), named(_$observationRegistrar), named(_SwiftDataNoType), named(access), named(withMutation)) @attached(memberAttribute) @attached(extension, conformances: Observable, PersistentModel, Sendable) public macro Model() = #externalMacro(module: "SwiftDataMacros", type: "PersistentModelMacro")
+                                                                                                                                                                                                                                                                                                                                                                                    ^
+/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Models/InboxItem.swift:12:9: error: external macro implementation type 'SwiftDataMacros.PersistentModelMacro' could not be found for macro 'Model()'; '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server' produced malformed response
+    var itemTypeRaw: String?
+        ^
+SwiftData.Model:3:373: note: 'Model()' declared here
+@attached(member, conformances: Observable, PersistentModel, Sendable, names: named(_$backingData), named(persistentBackingData), named(schemaMetadata), named(init), named(_$observationRegistrar), named(_SwiftDataNoType), named(access), named(withMutation)) @attached(memberAttribute) @attached(extension, conformances: Observable, PersistentModel, Sendable) public macro Model() = #externalMacro(module: "SwiftDataMacros", type: "PersistentModelMacro")
+                                                                                                                                                                                                                                                                                                                                                                                    ^
+/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Models/InboxItem.swift:13:9: error: external macro implementation type 'SwiftDataMacros.PersistentModelMacro' could not be found for macro 'Model()'; '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server' produced malformed response
+    var isDemoItem: Bool
+        ^
+SwiftData.Model:3:373: note: 'Model()' declared here
+@attached(member, conformances: Observable, PersistentModel, Sendable, names: named(_$backingData), named(persistentBackingData), named(schemaMetadata), named(init), named(_$observationRegistrar), named(_SwiftDataNoType), named(access), named(withMutation)) @attached(memberAttribute) @attached(extension, conformances: Observable, PersistentModel, Sendable) public macro Model() = #externalMacro(module: "SwiftDataMacros", type: "PersistentModelMacro")
+                                                                                                                                                                                                                                                                                                                                                                                    ^
+/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Models/InboxItem.swift:15:5: error: external macro implementation type 'SwiftDataMacros.PersistentModelMacro' could not be found for macro 'Model()'; '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server' produced malformed response
+    init(
+    ^
+SwiftData.Model:3:373: note: 'Model()' declared here
+@attached(member, conformances: Observable, PersistentModel, Sendable, names: named(_$backingData), named(persistentBackingData), named(schemaMetadata), named(init), named(_$observationRegistrar), named(_SwiftDataNoType), named(access), named(withMutation)) @attached(memberAttribute) @attached(extension, conformances: Observable, PersistentModel, Sendable) public macro Model() = #externalMacro(module: "SwiftDataMacros", type: "PersistentModelMacro")
+                                                                                                                                                                                                                                                                                                                                                                                    ^
+/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Inbox/InboxView.swift:6:5: error: macro 'Query(filter:sort:transaction:)' requires that 'InboxItem' conform to 'PersistentModel'
+    @Query(sort: [SortDescriptor(\InboxItem.createdAt, order: .reverse)]) private var items: [InboxItem]
+    ^
+_SwiftData_SwiftUI.Query:2:72: note: where 'Element' = 'InboxItem'
+@attached(accessor) @attached(peer, names: prefixed(`_`)) public macro Query<Element>(filter: Predicate<Element>? = nil, sort descriptors: [SortDescriptor<Element>] = [], transaction: Transaction? = nil) = #externalMacro(module: "SwiftDataMacros", type: "QueryMacro") where Element : PersistentModel
+                                                                       ^
+/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Search/SearchView.swift:5:5: error: macro 'Query(filter:sort:transaction:)' requires that 'InboxItem' conform to 'PersistentModel'
+    @Query(sort: [SortDescriptor(\InboxItem.createdAt, order: .reverse)]) private var items: [InboxItem]
+    ^
+_SwiftData_SwiftUI.Query:2:72: note: where 'Element' = 'InboxItem'
+@attached(accessor) @attached(peer, names: prefixed(`_`)) public macro Query<Element>(filter: Predicate<Element>? = nil, sort descriptors: [SortDescriptor<Element>] = [], transaction: Transaction? = nil) = #externalMacro(module: "SwiftDataMacros", type: "QueryMacro") where Element : PersistentModel
+                                                                       ^
+/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Models/InboxItem.swift:5:13: error: external macro implementation type 'SwiftDataMacros.PersistentModelMacro' could not be found for macro 'Model()'; '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server' produced malformed response
+final class InboxItem {
+            ^
+SwiftData.Model:3:373: note: 'Model()' declared here
+@attached(member, conformances: Observable, PersistentModel, Sendable, names: named(_$backingData), named(persistentBackingData), named(schemaMetadata), named(init), named(_$observationRegistrar), named(_SwiftDataNoType), named(access), named(withMutation)) @attached(memberAttribute) @attached(extension, conformances: Observable, PersistentModel, Sendable) public macro Model() = #externalMacro(module: "SwiftDataMacros", type: "PersistentModelMacro")
+                                                                                                                                                                                                                                                                                                                                                                                    ^
+/Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Models/InboxItem.swift:6:29: error: external macro implementation type 'SwiftDataMacros.AttributePropertyMacro' could not be found for macro 'Attribute(_:originalName:hashModifier:)'; '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server' produced malformed response
+    @Attribute(.unique) var id: UUID
+                            ^
+SwiftData.Attribute:3:30: note: 'Attribute(_:originalName:hashModifier:)' declared here
+@attached(peer) public macro Attribute(_ options: Schema.Attribute.Option..., originalName: String? = nil, hashModifier: String? = nil) = #externalMacro(module: "SwiftDataMacros", type: "AttributePropertyMacro")
+                             ^
+
+SwiftCompile normal arm64 Compiling\ SharedInboxIngestionService.swift,\ SharedInboxStore.swift,\ GeneratedAssetSymbols.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/SharedInboxIngestionService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/SharedInboxStore.swift /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'ActionLens' from project 'ActionLens')
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/SharedInboxIngestionService.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/SharedInboxStore.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLens.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+sandbox-exec: sandbox_apply: Operation not permitted
+SwiftCompile normal arm64 Compiling\ InboxItemDetailView.swift,\ InboxItemDetailViewModel.swift,\ InboxView.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Inbox/InboxItemDetailView.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Inbox/InboxItemDetailViewModel.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Inbox/InboxView.swift (in target 'ActionLens' from project 'ActionLens')
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Inbox/InboxItemDetailView.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Inbox/InboxItemDetailViewModel.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Inbox/InboxView.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+sandbox-exec: sandbox_apply: Operation not permitted
+SwiftCompile normal arm64 Compiling\ InboxUrgencyGrouping.swift,\ OnboardingState.swift,\ SharedInboxPayload.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/InboxUrgencyGrouping.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/OnboardingState.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/SharedInboxPayload.swift (in target 'ActionLens' from project 'ActionLens')
+sandbox-exec: sandbox_apply: Operation not permitted
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/InboxUrgencyGrouping.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/OnboardingState.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/SharedInboxPayload.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 Compiling\ InboxViewModel.swift,\ SearchView.swift,\ SearchViewModel.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Inbox/InboxViewModel.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Search/SearchView.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Search/SearchViewModel.swift (in target 'ActionLens' from project 'ActionLens')
+sandbox-exec: sandbox_apply: Operation not permitted
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Inbox/InboxViewModel.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Search/SearchView.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Search/SearchViewModel.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 Compiling\ ActionLensApp.swift,\ FirstRunOnboardingView.swift,\ RootTabView.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/App/ActionLensApp.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/App/FirstRunOnboardingView.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/App/RootTabView.swift (in target 'ActionLens' from project 'ActionLens')
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/App/ActionLensApp.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/App/FirstRunOnboardingView.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/App/RootTabView.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+sandbox-exec: sandbox_apply: Operation not permitted
+SwiftCompile normal arm64 Compiling\ AppEnvironment.swift,\ InboxFiltering.swift,\ InboxItemType.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/AppEnvironment.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/InboxFiltering.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/InboxItemType.swift (in target 'ActionLens' from project 'ActionLens')
+sandbox-exec: sandbox_apply: Operation not permitted
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/AppEnvironment.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/InboxFiltering.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Core/InboxItemType.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 Compiling\ LocalItemClassificationService.swift,\ LocalSmartActionService.swift,\ SharedInboxDebugStateStore.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/LocalItemClassificationService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/LocalSmartActionService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/SharedInboxDebugStateStore.swift (in target 'ActionLens' from project 'ActionLens')
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/LocalItemClassificationService.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/LocalSmartActionService.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/SharedInboxDebugStateStore.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 Compiling\ View+Placeholder.swift,\ ImportView.swift,\ ImportViewModel.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Extensions/View+Placeholder.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Import/ImportView.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Import/ImportViewModel.swift (in target 'ActionLens' from project 'ActionLens')
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Extensions/View+Placeholder.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Import/ImportView.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Import/ImportViewModel.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 Compiling\ EventKitActionService.swift,\ ImageOCRService.swift,\ ImportService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/EventKitActionService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/ImageOCRService.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/ImportService.swift (in target 'ActionLens' from project 'ActionLens')
+sandbox-exec: sandbox_apply: Operation not permitted
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/EventKitActionService.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/ImageOCRService.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Services/ImportService.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 Compiling\ SettingsView.swift,\ SettingsViewModel.swift,\ InboxItem.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Settings/SettingsView.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Settings/SettingsViewModel.swift /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Models/InboxItem.swift (in target 'ActionLens' from project 'ActionLens')
+sandbox-exec: sandbox_apply: Operation not permitted
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Settings/SettingsView.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Features/Settings/SettingsViewModel.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+SwiftCompile normal arm64 /Users/nikitamarshchonok/Desktop/ActionLens/ActionLens/Models/InboxItem.swift (in target 'ActionLens' from project 'ActionLens')
+    cd /Users/nikitamarshchonok/Desktop/ActionLens
+    
+
+** BUILD FAILED **
+
+
+The following build commands failed:
+	SwiftEmitModule normal arm64 Emitting\ module\ for\ ActionLens (in target 'ActionLens' from project 'ActionLens')
+	EmitSwiftModule normal arm64 (in target 'ActionLens' from project 'ActionLens')
+	Building project ActionLens with scheme ActionLens and configuration Debug
+(3 failures)

@@ -17,7 +17,7 @@ struct ImportView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Quick Import") {
+                Section {
                     PhotosPicker(selection: $selectedPhotoItem, matching: .images) {
                         Label("From Photos", systemImage: "photo.on.rectangle")
                     }
@@ -29,6 +29,8 @@ struct ImportView: View {
                         Label("From Files", systemImage: "doc.badge.plus")
                     }
                     .accessibilityHint("Opens Files to import a document or image.")
+                } header: {
+                    Text("Quick Import")
                 } footer: {
                     Text("Import one item at a time. New items appear in Inbox.")
                 }

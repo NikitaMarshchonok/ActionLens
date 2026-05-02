@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Target 'ActionLens' in project 'ActionLens'
+➜ Explicit dependency on target 'ActionLensShareExtension' in project 'ActionLens'
+Target 'ActionLensShareExtension' in project 'ActionLens' (no dependencies)

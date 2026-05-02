@@ -1,0 +1,29 @@
+{
+  "" : {
+    "diagnostics" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension-primary.dia",
+    "emit-module-dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension-primary-emit-module.dia",
+    "pch" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ActionLensShareExtension-primary.swiftdeps"
+  },
+  "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLensShareExtension/ExtensionSharedInboxModels.swift" : {
+    "const-values" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ExtensionSharedInboxModels.swiftconstvalues",
+    "dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ExtensionSharedInboxModels.d",
+    "diagnostics" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ExtensionSharedInboxModels.dia",
+    "index-unit-output-path" : "/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ExtensionSharedInboxModels.o",
+    "llvm-bc" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ExtensionSharedInboxModels.bc",
+    "object" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ExtensionSharedInboxModels.o",
+    "swift-dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ExtensionSharedInboxModels.swiftdeps",
+    "swiftmodule" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ExtensionSharedInboxModels~partial.swiftmodule"
+  },
+  "/Users/nikitamarshchonok/Desktop/ActionLens/ActionLensShareExtension/ShareViewController.swift" : {
+    "const-values" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ShareViewController.swiftconstvalues",
+    "dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ShareViewController.d",
+    "diagnostics" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ShareViewController.dia",
+    "index-unit-output-path" : "/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ShareViewController.o",
+    "llvm-bc" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ShareViewController.bc",
+    "object" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ShareViewController.o",
+    "swift-dependencies" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ShareViewController.swiftdeps",
+    "swiftmodule" : "/Users/nikitamarshchonok/Desktop/ActionLens/.DerivedDataLocal/Build/Intermediates.noindex/ActionLens.build/Debug-iphoneos/ActionLensShareExtension.build/Objects-normal/arm64/ShareViewController~partial.swiftmodule"
+  }
+}

@@ -89,6 +89,8 @@ final class ContactsActionService: ContactActionServicing {
         switch CNContactStore.authorizationStatus(for: .contacts) {
         case .authorized:
             return true
+        case .limited:
+            return true
         case .notDetermined:
             return await withCheckedContinuation { continuation in
                 contactStore.requestAccess(for: .contacts) { granted, error in

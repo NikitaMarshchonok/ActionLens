@@ -45,7 +45,7 @@ struct SettingsView: View {
                 }
 
 #if DEBUG
-                Section("Developer (Debug)") {
+                Section {
                     Button("Ingest Shared Queue Now") {
                         let report = viewModel.ingestSharedQueue(into: modelContext)
                         debugReportText = report.summaryText
@@ -60,6 +60,8 @@ struct SettingsView: View {
                         let report = viewModel.clearDemoData(into: modelContext)
                         demoReportText = report.message
                     }
+                } header: {
+                    Text("Developer (Debug)")
                 } footer: {
                     Text("Debug tools are for development builds only.")
                 }
